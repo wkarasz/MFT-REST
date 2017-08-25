@@ -1,0 +1,127 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/MiscCommands.getProductNameVersion-misc-getproductnameversion.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "/T1502327566704Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/AuditCommands.getAudit-audit.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "/T1502328663152Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/AuditCommands.removeAudit-RemoveAudit.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "/T1502329242867Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/AuditCommands.AuditGetAudit-Audit-GetAudit.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/Audit/GetAudit/parameters"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/AuditCommands.removeAudit-Audit-RemoveAudit.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "/T1502329242867Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/AuditCommands.removeAudit-Audit-RemoveAudit.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "/T1502333993381Converted/SimpleTypesArraysSchema"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/AuditCommands.searchForAudits-Audits-SearchForAudits.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "searchForAuditRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/ServerCommands.addServer-Server-AddServer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddServerRequestSimplified"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/TransferCommands.addTransfer-Transfer-AddTransfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddTransferRequestSimplified"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/DepartmentCommands.updateDepartment-Department-UpdateDepartment.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "UpdateDepartment"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/GroupCommands.addGroup-Group-AddGroup.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddGroup"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/GroupCommands.addUserToGroup-Group-AddUserToGroup.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddUserToGroup"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/RoleCommands.AddUserToRole-Role-AddUserToRole.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddUserToRole"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/RoleCommands.removeUserFromRole-Role-RemoveUserFromRole.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "RemoveUserFromRole"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/ServerCommands.UpdateServer-Server-UpdateServer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "UpdateServer"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/TransferCommands.searchForTransfers-Transfer-SearchForTransfers.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "SearchForTransfersRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/TransferCommands.updateTransfer-Transfer-UpdateTransfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "UpdateTransferRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserCommands.addAdminUser-User-AddAdminUser.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddAdminUserRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserCommands.addTransferUser-User-AddTransferUser.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddTransferUserRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserCommands.changePassword-User-ChangePassword.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "ChangePasswordRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserCommands.updateUser-User-UpdateUser.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "UpdateUserRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserProfileCommands.addUserProfile-UserProfile-AddUserProfile.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "AddUserProfileRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserProfileCommands.getUserProfiles-User-GetUserProfiles.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "getUserProfilesRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserProfileCommands.removeUserProfile-UserProfile-RemoveUserProfile.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "RemoveUserProfileRequest"
+    },
+    {
+        "jsonSchemaLocation": "/REST-CLI.module/Service Descriptors/UserProfileCommands.updateUserProfile-UserProfile-UpdateUserProfile.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "UpdateUserProfileRequest"
+    }
+]}

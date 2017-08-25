@@ -1,0 +1,129 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to define a user to the MFTCC system.",
+    "description" : "Command action is used to define a user to the MFTCC system."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/user/addtransferuser" : {
+      "post" : {
+        "description" : "Add transfer user.",
+        "operationId" : "post-user-addtransferuser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "AddPGPKey" : {
+          "type" : "string"
+        },
+        "AllowableProtocol" : {
+          "type" : "string"
+        },
+        "CanChangePassword" : {
+          "type" : "string"
+        },
+        "CertificateDN" : {
+          "type" : "string"
+        },
+        "ChangePasswordNextLogin" : {
+          "type" : "string"
+        },
+        "CompanyName" : {
+          "type" : "string"
+        },
+        "DefaultRole" : {
+          "type" : "string"
+        },
+        "Department" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "DisableFlag" : {
+          "type" : "string"
+        },
+        "EmailAddr" : {
+          "type" : "string"
+        },
+        "EndDate" : {
+          "type" : "string"
+        },
+        "ExpirationDate" : {
+          "type" : "string"
+        },
+        "FullName" : {
+          "type" : "string"
+        },
+        "IPName" : {
+          "type" : "string"
+        },
+        "LockFlag" : {
+          "type" : "string"
+        },
+        "Netmask" : {
+          "type" : "string"
+        },
+        "Password" : {
+          "type" : "string"
+        },
+        "PasswordNeverExpires" : {
+          "type" : "string"
+        },
+        "PhoneNumber" : {
+          "type" : "string"
+        },
+        "RestrictUser" : {
+          "type" : "string"
+        },
+        "StartDate" : {
+          "type" : "string"
+        },
+        "TraceLevelFlag" : {
+          "type" : "string"
+        },
+        "UserId" : {
+          "type" : "string"
+        },
+        "ValidDays" : {
+          "type" : "string"
+        },
+        "ValidEndTime" : {
+          "type" : "string"
+        },
+        "ValidStartTime" : {
+          "type" : "string"
+        },
+        "Visibility" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

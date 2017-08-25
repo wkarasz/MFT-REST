@@ -1,0 +1,37 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to display a list of all file definitions that have been defined for a user ID.",
+    "description" : "Command action is used to display a list of all file definitions that have been defined for a user ID."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/transfer/retrievealltransfersforuser/{userid}" : {
+      "get" : {
+        "description" : "Retrieve file definitions for a user ID.",
+        "operationId" : "get-transfer-retrievealltransfersforuser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "userid",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

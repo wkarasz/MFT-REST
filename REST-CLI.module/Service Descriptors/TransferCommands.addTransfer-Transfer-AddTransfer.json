@@ -1,0 +1,273 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/transfer/addtransfer" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-transfer-addtransfer",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "AllowDelete" : {
+          "type" : "string"
+        },
+        "AllowMakeDirectory" : {
+          "type" : "string"
+        },
+        "AllowRemoveDirectory" : {
+          "type" : "string"
+        },
+        "AllowRename" : {
+          "type" : "string"
+        },
+        "AllowableProtocol" : {
+          "type" : "string"
+        },
+        "AuthGroupId" : {
+          "type" : "string"
+        },
+        "AvailableDate" : {
+          "type" : "string"
+        },
+        "CRLF" : {
+          "type" : "string"
+        },
+        "ChkptInterval" : {
+          "type" : "string"
+        },
+        "ChkptRestartFlag" : {
+          "type" : "string"
+        },
+        "ClientCompressFlag" : {
+          "type" : "string"
+        },
+        "ClientFileName" : {
+          "type" : "string"
+        },
+        "DataType" : {
+          "type" : "string"
+        },
+        "DefaultNodePwd" : {
+          "type" : "string"
+        },
+        "DefaultNodeUserId" : {
+          "type" : "string"
+        },
+        "DefaultWinDomain" : {
+          "type" : "string"
+        },
+        "Department" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "DirectoryTransfer" : {
+          "type" : "string"
+        },
+        "DisableFlag" : {
+          "type" : "string"
+        },
+        "DownloadUploadFlag" : {
+          "type" : "string"
+        },
+        "EmailFailureTemplate" : {
+          "type" : "string"
+        },
+        "EmailNotifyTemplate" : {
+          "type" : "string"
+        },
+        "EmailSuccessTemplate" : {
+          "type" : "string"
+        },
+        "EncryptFlag" : {
+          "type" : "string"
+        },
+        "ExpirationDate" : {
+          "type" : "string"
+        },
+        "FTPAlias" : {
+          "type" : "string"
+        },
+        "LocalTranslationTable" : {
+          "type" : "string"
+        },
+        "NotifyEmailTemplate" : {
+          "type" : "string"
+        },
+        "NotifyFileAvailable" : {
+          "type" : "string"
+        },
+        "OneTimeFlag" : {
+          "type" : "string"
+        },
+        "PGPASCII" : {
+          "type" : "string"
+        },
+        "PGPCompression" : {
+          "type" : "string"
+        },
+        "PGPDecrypt" : {
+          "type" : "string"
+        },
+        "PGPEncrypt" : {
+          "type" : "string"
+        },
+        "PGPEncryptAlgorithm" : {
+          "type" : "string"
+        },
+        "PGPHashAlgorithm" : {
+          "type" : "string"
+        },
+        "PGPPrivateKey" : {
+          "type" : "string"
+        },
+        "PGPSign" : {
+          "type" : "string"
+        },
+        "PGPVerifySignature" : {
+          "type" : "string"
+        },
+        "PGPVerifyUserSignature" : {
+          "type" : "string"
+        },
+        "PostActionType1" : {
+          "type" : "string"
+        },
+        "PostActionData1" : {
+          "type" : "string"
+        },
+        "PostActionFlag1" : {
+          "type" : "string"
+        },
+        "PostActionType2" : {
+          "type" : "string"
+        },
+        "PostActionData2" : {
+          "type" : "string"
+        },
+        "PostActionFlag2" : {
+          "type" : "string"
+        },
+        "PostActionType3" : {
+          "type" : "string"
+        },
+        "PostActionData3" : {
+          "type" : "string"
+        },
+        "PostActionFlag3" : {
+          "type" : "string"
+        },
+        "PostActionType4" : {
+          "type" : "string"
+        },
+        "PostActionData4" : {
+          "type" : "string"
+        },
+        "PostActionFlag4" : {
+          "type" : "string"
+        },
+        "RemoteTranslationTable" : {
+          "type" : "string"
+        },
+        "RemoveTrailingBlanks" : {
+          "type" : "string"
+        },
+        "ServerFileName" : {
+          "type" : "string"
+        },
+        "ServerName" : {
+          "type" : "string"
+        },
+        "ToEmailAddrFailure" : {
+          "type" : "string"
+        },
+        "ToEmailAddrSuccess" : {
+          "type" : "string"
+        },
+        "TraceLevelFlag" : {
+          "type" : "string"
+        },
+        "UserId" : {
+          "type" : "string"
+        },
+        "ValidDays" : {
+          "type" : "string"
+        },
+        "ValidStartTime" : {
+          "type" : "string"
+        },
+        "ValidEndTime" : {
+          "type" : "string"
+        },
+        "WriteMode" : {
+          "type" : "string"
+        },
+        "zOSAllocPri" : {
+          "type" : "string"
+        },
+        "zOSAllocSec" : {
+          "type" : "string"
+        },
+        "zOSAllocType" : {
+          "type" : "string"
+        },
+        "zOSBlockSize" : {
+          "type" : "string"
+        },
+        "zOSDataClass" : {
+          "type" : "string"
+        },
+        "zOSLRECL" : {
+          "type" : "string"
+        },
+        "zOSMgtClass" : {
+          "type" : "string"
+        },
+        "zOSRECFM" : {
+          "type" : "string"
+        },
+        "zOSStorClass" : {
+          "type" : "string"
+        },
+        "zOSUnit" : {
+          "type" : "string"
+        },
+        "zOSVolume" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

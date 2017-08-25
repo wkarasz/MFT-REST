@@ -1,0 +1,66 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to search for file definitions.",
+    "description" : "Command action is used to search for file definitions."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/transfer/searchfortransfers" : {
+      "post" : {
+        "description" : "Search for file definitions",
+        "operationId" : "post-transfer-searchfortransfers",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "AuthGroupId" : {
+          "type" : "string"
+        },
+        "ClientFileName" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "TransferId" : {
+          "type" : "string"
+        },
+        "ServerFileName" : {
+          "type" : "string"
+        },
+        "ServerName" : {
+          "type" : "string"
+        },
+        "UserId" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

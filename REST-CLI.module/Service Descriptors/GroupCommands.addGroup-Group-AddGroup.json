@@ -1,0 +1,57 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to define a group.",
+    "description" : "Command action is used to define a group."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/group/addgroup" : {
+      "post" : {
+        "description" : "Define a group.",
+        "operationId" : "post-group-addgroup",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "Department" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "GroupId" : {
+          "type" : "string"
+        },
+        "Visibility" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

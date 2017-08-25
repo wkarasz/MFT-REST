@@ -1,0 +1,31 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to display configuration parameters from all server credential definitios in the MFTCC system.",
+    "description" : "Command action is used to display configuration parameters from all server credential definitios in the MFTCC system."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/userprofile/retrievealluserprofiles" : {
+      "get" : {
+        "description" : "Retrieve all user profiles.",
+        "operationId" : "get-userprofile-retrievealluserprofiles",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

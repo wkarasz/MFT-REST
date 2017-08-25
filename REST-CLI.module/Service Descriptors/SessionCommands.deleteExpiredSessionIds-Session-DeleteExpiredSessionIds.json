@@ -1,0 +1,31 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to delete all MFTCC session IDs that are on the session database but have expired.",
+    "description" : "Command action is used to delete all MFTCC session IDs that are on the session database but have expired."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/session/deleteexpiredsessionids" : {
+      "delete" : {
+        "description" : "Delete expired session IDs",
+        "operationId" : "delete-session-deleteexpiredsessionids",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

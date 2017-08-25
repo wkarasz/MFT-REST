@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="UpdateUserProfileRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="UpdateUserProfileRequest">
+  <xsd:element name="Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="GroupId" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="NodeName" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="RemotePassword" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="RemoteUserId" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="RemoteUserWinDomain" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="UserId" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

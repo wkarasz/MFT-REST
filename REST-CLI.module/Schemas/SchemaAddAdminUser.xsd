@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="AddAdminUserRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="AddAdminUserRequest">
+  <xsd:element name="Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AddPGPKey" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AllowableProtocol" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="CanChangePassword" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="CertificateDN" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ChangePasswordNextLogin" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="CompanyName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultRole" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Department" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DisableFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="EmailAddr" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="EndDate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ExpirationDate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="FullName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="IPName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="LockFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Netmask" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Password" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PasswordNeverExpires" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PhoneNumber" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="RestrictUser" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="StartDate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="TraceLevelFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ValidDays" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="UserId" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ValidEndTime" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ValidStartTime" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Visibility" type="xsd:string"/>
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

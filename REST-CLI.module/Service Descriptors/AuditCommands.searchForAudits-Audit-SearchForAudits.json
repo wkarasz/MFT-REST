@@ -1,0 +1,93 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/audit/searchforaudits" : {
+      "post" : {
+        "description" : "Search For Audits",
+        "operationId" : "post-audit-searchforaudits",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/searchForAuditRequest"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "searchForAuditRequest" : {
+      "type" : "object",
+      "properties" : {
+        "AuditID" : {
+          "type" : "string"
+        },
+        "AuthGroupID" : {
+          "type" : "string"
+        },
+        "ClientFileName" : {
+          "type" : "string"
+        },
+        "Days" : {
+          "type" : "string"
+        },
+        "Department" : {
+          "type" : "string"
+        },
+        "FileID" : {
+          "type" : "string"
+        },
+        "FromDate" : {
+          "type" : "string"
+        },
+        "FromTime" : {
+          "type" : "string"
+        },
+        "LocalTransactionID" : {
+          "type" : "string"
+        },
+        "ServerFileName" : {
+          "type" : "string"
+        },
+        "ServerType" : {
+          "type" : "string"
+        },
+        "ToDate" : {
+          "type" : "string"
+        },
+        "ToTime" : {
+          "type" : "string"
+        },
+        "TransferStatus" : {
+          "type" : "string"
+        },
+        "TransferUserID" : {
+          "type" : "string"
+        },
+        "UserID" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

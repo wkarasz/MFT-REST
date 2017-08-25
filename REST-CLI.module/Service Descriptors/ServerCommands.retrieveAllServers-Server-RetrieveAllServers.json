@@ -1,0 +1,31 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to display configuration parameters from all node definitions from the MFTCC node definition table.",
+    "description" : "Command action is used to display configuration parameters from all node definitions from the MFTCC node definition table."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/server/retrieveallservers" : {
+      "get" : {
+        "description" : "Retrieve all servers.",
+        "operationId" : "get-server-retrieveallservers",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

@@ -1,0 +1,147 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/server/updateserver" : {
+      "patch" : {
+        "description" : "Command action is used to update an existing MFTCC node definition.",
+        "operationId" : "patch-server-updateserver",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "CheckServerStatus" : {
+          "type" : "string"
+        },
+        "CollectInterval" : {
+          "type" : "string"
+        },
+        "CollectType" : {
+          "type" : "string"
+        },
+        "CollectionFlag" : {
+          "type" : "string"
+        },
+        "CompressType" : {
+          "type" : "string"
+        },
+        "ConnectionSecurityType" : {
+          "type" : "string"
+        },
+        "DataConnectionType" : {
+          "type" : "string"
+        },
+        "DefaultEncryptType" : {
+          "type" : "string"
+        },
+        "DefaultLTTable" : {
+          "type" : "string"
+        },
+        "DefaultPass" : {
+          "type" : "string"
+        },
+        "DefaultRTTable" : {
+          "type" : "string"
+        },
+        "DefaultUser" : {
+          "type" : "string"
+        },
+        "DefaultWinDomain" : {
+          "type" : "string"
+        },
+        "Department" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "DisableFlag" : {
+          "type" : "string"
+        },
+        "INETServerType" : {
+          "type" : "string"
+        },
+        "IPName" : {
+          "type" : "string"
+        },
+        "IPPort" : {
+          "type" : "string"
+        },
+        "ManageCFServerFlag" : {
+          "type" : "string"
+        },
+        "PGPASCII" : {
+          "type" : "string"
+        },
+        "PGPCompression" : {
+          "type" : "string"
+        },
+        "PGPEnabled" : {
+          "type" : "string"
+        },
+        "PGPEncryptAlgorithm" : {
+          "type" : "string"
+        },
+        "PGPHashAlgorithm" : {
+          "type" : "string"
+        },
+        "PGPPrivateKey" : {
+          "type" : "string"
+        },
+        "PGPSign" : {
+          "type" : "string"
+        },
+        "PGPVerifySignature" : {
+          "type" : "string"
+        },
+        "PGPVerifyServerSignature" : {
+          "type" : "string"
+        },
+        "ServerFileNamePrefix" : {
+          "type" : "string"
+        },
+        "ServerName" : {
+          "type" : "string"
+        },
+        "ServerPlatform" : {
+          "type" : "string"
+        },
+        "TraceLevelFlag" : {
+          "type" : "string"
+        },
+        "Visibility" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

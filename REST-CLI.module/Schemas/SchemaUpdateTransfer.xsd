@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="UpdateTransferRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="UpdateTransferRequest">
+  <xsd:element name="Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AuthGroupId" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AvailableDate" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AllowableProtocol" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ChkptInterval" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ChkptRestartFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ClientCompressFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ClientFileName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="CRLF" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DataType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultNodePwd" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultNodeUserId" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultWinDomain" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DirectoryTransfer" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DisableFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DownloadUploadFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="EmailFailureTemplate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="EmailNotifyTemplate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="EmailSuccessTemplate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="EncryptFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ExpirationDate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="FTPAlias" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="LocalTranslationTable" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="NotifyEmailTemplate" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="NotifyFileAvailable" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="OneTimeFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPASCII" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPCompression" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPDecrypt" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPEncrypt" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPEncryptAlgorithm" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPHashAlgorithm" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPPrivateKey" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPSign" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPVerifySignature" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPVerifyUserSignature" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionFlag1" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionType1" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionData1" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="PostActionFlag2" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionType2" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionData2" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="PostActionFlag3" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionType3" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionData3" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="PostActionFlag4" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionType4" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PostActionData4" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="RemoteTranslationTable" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="RemoveTrailingBlanks" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ServerFileName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ServerName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ToEmailAddrFailure" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ToEmailAddrSuccess" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="TraceLevelFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="UserId" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ValidDays" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ValidStartTime" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ValidEndTime" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="WriteMode" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSAllocPri" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSAllocSec" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSAllocType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSBlockSize" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSDataClass" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSLRECL" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSMgtClass" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSRECFM" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSStorClass" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSUnit" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="zOSVolume" type="xsd:string"/>
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

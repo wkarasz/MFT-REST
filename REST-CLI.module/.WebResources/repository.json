@@ -1,0 +1,245 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://qa-integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/AuditCommands.getAudit-audit.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DepartmentCommands.addDepartment-department.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/AuditCommands.removeAudit-RemoveAudit.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/AuditCommands.removeAudit-Audit-RemoveAudit.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/AuditCommands.getAudit-Audit-GetAudit.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DepartmentCommands.addDepartment-Department-AddDepartment.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/MiscCommands.getProductNameVersion-misc-getproductnameversion.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/AuditCommands.AuditGetAudit-Audit-GetAudit.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/AuditCommands.searchForAudits-Audits-SearchForAudits.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/AuditCommands.searchForAudits-Audit-SearchForAudits.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/ServerCommands.addServer-Server-AddServer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/ServerCommands.getServer-Server-GetServer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.addTransfer-Transfer-AddTransfer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DepartmentCommands.getDepartment-Department-GetDepartment.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DepartmentCommands.removeDepartment-Department-RemoveDepartment.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DepartmentCommands.retrieveAllDepartments-Department-RetrieveAllDepartments.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DepartmentCommands.updateDepartment-Department-UpdateDepartment.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.addGroup-Group-AddGroup.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.addUserToGroup-Group-AddUserToGroup.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.getGroup-Group-GetGroup.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.removeGroup-Group-RemoveGroup.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.retrieveAllGroups-Group-RetrieveAllGroups.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.retrieveAllGroupsForUser-Group-RetrieveAllGroupsForUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.retrieveAllUsersInGroup-Group-RetrieveAllUsersInGroup.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/GroupCommands.removeUserFromGroup-Group-RemoveUserFromGroup.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/RoleCommands.AddUserToRole-Role-AddUserToRole.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/RoleCommands.getRole-Role-GetRole.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/RoleCommands.retrieveAllRoles-Role-RetrieveAllRoles.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/RoleCommands.retrieveAllRolesForUser-Role-RetrieveAllRolesForUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/RoleCommands.retrieveAllUsersInRole-Role-RetrieveAllUsersInRole.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/RoleCommands.removeUserFromRole-Role-RemoveUserFromRole.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/ServerCommands.retrieveAllServers-Server-RetrieveAllServers.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/ServerCommands.removeServer-Server-RemoveServer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/ServerCommands.UpdateServer-Server-UpdateServer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/SessionCommands.deleteSessionId-Session-DeleteSession.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/SessionCommands.deleteExpiredSessionIds-Session-DeleteExpiredSessionIds.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/SessionCommands.getExpiredSessionIds-Session-GetExpiredSessionIds.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/SessionCommands.listActiveSessionIds-Session-ListActiveSessionIds.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.deleteExpiredTransfers-Transfer-DeleteExpiredTransfers.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.getTransfer-Transfer-GetTransfer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.retrieveAllTransfers-Transfer-RetrieveAllTransfers.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.retrieveAllTransfersForUser-Transfer-RetrieveAllTransfersForUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.removeTransfer-Transfer-RemoveTransfer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.searchForTransfers-Transfer-SearchForTransfers.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/TransferCommands.updateTransfer-Transfer-UpdateTransfer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.addAdminUser-User-AddAdminUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.addTransferUser-User-AddTransferUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.changePassword-User-ChangePassword.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.getUser-User-GetUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.removeUser-User-RemoveUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.retrieveAllUsers-User-RetrieveAllUsers.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserCommands.updateUser-User-UpdateUser.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserProfileCommands.addUserProfile-UserProfile-AddUserProfile.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserProfileCommands.getUserProfiles-User-GetUserProfiles.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserProfileCommands.retrieveAllUserProfiles-UserProfile-RetrieveAllUserProfiles.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserProfileCommands.removeUserProfile-UserProfile-RemoveUserProfile.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/UserProfileCommands.updateUserProfile-UserProfile-UpdateUserProfile.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/MiscCommands.getCopyrightInfo-Misc-GetCopyrightInfo.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/MiscCommands.help-help.json",
+            "type": "generated"
+        }
+    ]
+}

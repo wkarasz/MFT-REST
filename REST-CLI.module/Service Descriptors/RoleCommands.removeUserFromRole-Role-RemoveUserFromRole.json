@@ -1,0 +1,52 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to remove a user from an MFTCC role.",
+    "description" : "Command action is used to remove a user from an MFTCC role."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/role/removeuserfromrole" : {
+      "patch" : {
+        "description" : "Remove user from role.",
+        "operationId" : "patch-role-removeuserfromrole",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "required" : [ "UserId", "RoleId" ],
+      "properties" : {
+        "RoleId" : {
+          "type" : "string"
+        },
+        "UserId" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

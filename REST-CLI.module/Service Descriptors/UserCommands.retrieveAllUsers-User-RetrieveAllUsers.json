@@ -1,0 +1,31 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to display configuration parameters from all user definitions within the definition table of MFTCC users.",
+    "description" : "Command action is used to display configuration parameters from all user definitions within the definition table of MFTCC users."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/user/retrieveallusers" : {
+      "get" : {
+        "description" : "Retrieve all users.",
+        "operationId" : "get-user-retrieveallusers",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

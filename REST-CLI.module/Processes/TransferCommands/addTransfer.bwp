@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="TransferCommands.addTransfer" suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20170810115753"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="http://xmlns.example.com/20170810115753PLT"
+    xmlns:ns1="http://tns.tibco.com/bw/activity/externalcommand/xsd/input"
+    xmlns:ns2="http://tns.tibco.com/bw/activity/externalcommand/xsd"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="OptionalErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ApplicationName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="EngineName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <!--xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" form="unqualified" block="extension restriction substitution" type="xs:string"/-->
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="OptionalErrorReport" type="tns:OptionalErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+        </schema>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://tns.tibco.com/bw/activity/externalcommand/xsd"
+            xmlns:tns="http://tns.tibco.com/bw/activity/externalcommand/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType name="CmdOutputNoActivityOutput">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="returnCode" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CmdOutputWithActivityOutput">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="returnCode" type="xs:int"/>
+                    <xs:element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="output" type="xs:string"/>
+                    <xs:element form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="error" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CmdOutputNoActivityOutput" type="tns:CmdOutputNoActivityOutput"/>
+            <xs:element name="CmdOutputWithActivityOutput" type="tns:CmdOutputWithActivityOutput"/>
+            <xs:complexType name="CommandExecutionError">
+                <xs:sequence>
+                    <xs:element form="unqualified" name="msg" type="xs:string"/>
+                    <xs:element form="unqualified" name="msgCode" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="FileIOError">
+                <xs:sequence>
+                    <xs:element form="unqualified" name="msg" type="xs:string"/>
+                    <xs:element form="unqualified" name="msgCode" type="xs:string"/>
+                    <xs:element form="unqualified" name="fileName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="InvalidInputException">
+                <xs:sequence>
+                    <xs:element form="unqualified" name="msg" type="xs:string"/>
+                    <xs:element form="unqualified" name="msgCode" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CommandExecutionError" type="tns:CommandExecutionError"/>
+            <xs:element name="FileIOError" type="tns:FileIOError"/>
+            <xs:element name="InvalidInputException" type="tns:InvalidInputException"/>
+        </xs:schema>
+        <schema
+            targetNamespace="http://tns.tibco.com/bw/activity/externalcommand/xsd/input"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://tns.tibco.com/bw/activity/externalcommand/xsd/input">
+            <complexType name="CmdInput">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="command" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="input" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="outputFile" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="environment" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="workingDirectory" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="CmdInput" type="tns:CmdInput"/>
+        </schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20170810115753PLT"
+            xmlns:extns="AddTransferRequestSimplified"
+            xmlns:extns1="http://tns.tibco.com/bw/REST"
+            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+            xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+            xmlns:tns="http://xmlns.example.com/20170810115753PLT"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <plnk:partnerLinkType name="partnerLinkType">
+                <plnk:role name="use" portType="tns:transfer-addtransfer"/>
+            </plnk:partnerLinkType>
+            <wsdl:import namespace="AddTransferRequestSimplified"/>
+            <wsdl:import namespace="http://tns.tibco.com/bw/REST"/>
+            <wsdl:message name="postRequest">
+                <wsdl:part element="extns:Element" name="item" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:httpHeaders"
+                    name="httpHeaders" tibex:source="bw.rest"/>
+            </wsdl:message>
+            <wsdl:message name="postResponse">
+                <wsdl:part name="item"
+                    tibex:hasMultipleNamespaces="false" type="xsd:string"/>
+            </wsdl:message>
+            <wsdl:message name="post4XXFaultMessage">
+                <wsdl:part element="extns1:client4XXError" name="clientError"/>
+            </wsdl:message>
+            <wsdl:message name="post5XXFaultMessage">
+                <wsdl:part element="extns1:server5XXError" name="serverError"/>
+            </wsdl:message>
+            <wsdl:portType name="transfer-addtransfer"
+                tibex:bw.rest.apipath="/transfer/addtransfer"
+                tibex:bw.rest.basepath="Transfer/AddTransfer"
+                tibex:bw.rest.resource="Service Descriptors/TransferCommands.addTransfer-Transfer-AddTransfer.json"
+                tibex:bw.rest.resource.source="generated" tibex:source="bw.rest.service">
+                <wsdl:documentation>Summary about the new REST service.</wsdl:documentation>
+                <wsdl:operation name="post">
+                    <wsdl:input message="tns:postRequest" name="postInput"/>
+                    <wsdl:output message="tns:postResponse" name="postOutput"/>
+                    <wsdl:fault message="tns:post4XXFaultMessage" name="clientFault"/>
+                    <wsdl:fault message="tns:post5XXFaultMessage" name="serverFault"/>
+                </wsdl:operation>
+            </wsdl:portType>
+        </wsdl:definitions>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="false" createdBy="Administrator"
+        createdOn="Thu Aug 10 11:57:53 PDT 2017" description=""
+        modifiers="public" productVersion="6.3.5 V17 2017-02-02"
+        scalable="true" singleton="true" stateless="true" type="IT"/>
+    <tibex:ProcessInterface context="" input="" output=""/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001"/>
+            <children type="3001">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4010">
+                                    <children type="5002"/>
+                                    <children type="3010">
+                                    <children type="4013">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="34"
+                                    width="34" x="9"
+                                    xsi:type="notation:Bounds" y="55"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3011">
+                                    <children type="4011">
+                                    <children type="3012">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint
+                                    xsi:type="notation:Bounds" y="40"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3013">
+                                    <children type="4018">
+                                    <children type="3018">
+
+                                    <children type="4020">
+
+                                    <children type="3020">
+
+                                    <children type="4005">
+
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint
+                                    x="245"
+                                    xsi:type="notation:Bounds" y="10"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    x="7"
+                                    xsi:type="notation:Bounds" y="4"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:DrawerStyle"/>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="108"
+                                    width="400"
+                                    x="2"
+                                    xsi:type="notation:Bounds" y="2"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
+
+                                    <layoutConstraint
+                                    height="-45"
+                                    width="-76"
+                                    x="30"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3016">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint
+                                    xsi:type="notation:Bounds" y="40"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles
+                                    restoreHeight="142"
+                                    restoreWidth="486"
+                                    restoreX="2" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
+                                    <layoutConstraint
+                                    height="142"
+                                    width="486"
+                                    x="2" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="172" width="561" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="384"
+                                    width="515" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="365" width="444"
+                                x="30" xsi:type="notation:Bounds" y="20"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="409" width="519" xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="460" width="860" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 6, -213, 0]$[214, 0, -24, -6]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="AddTransferRequestSimplified"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink myRole="use" name="transfer-addtransfer"
+            partnerLinkType="ns0:partnerLinkType"
+            sca-bpel:ignore="false" sca-bpel:service="transfer-addtransfer"/>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable element="ns:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable name="cmd" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="cmdAdminClient" type="xsd:string"/>
+        <bpws:variable name="workingDir" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="workingDir" type="xsd:string"/>
+        <bpws:variable messageType="ns0:postRequest" name="post" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns0:postResponse"
+            name="postOut-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:CmdInput"
+            name="ExternalCommand-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:CmdOutputWithActivityOutput"
+            name="ExternalCommand" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:flow name="flow">
+            <bpws:links/>
+            <bpws:pick createInstance="yes" name="pick" tibex:xpdlId="7f96f569-0e82-423e-8d88-47922aea46df">
+                <bpws:onMessage operation="post"
+                    partnerLink="transfer-addtransfer"
+                    portType="ns0:transfer-addtransfer"
+                    tibex:xpdlId="1a1d8c79-022f-4048-b4d8-d0983d986311" variable="post">
+                    <bpws:scope name="scope1">
+                        <bpws:flow name="flow1">
+                            <bpws:links>
+                                <bpws:link
+                                    name="ExternalCommandTopostOut" tibex:linkType="SUCCESS"/>
+                            </bpws:links>
+                            <bpws:empty name="OnMessageStart"
+                                tibex:constructor="onMessageStart" tibex:xpdlId="7558ead5-1946-4133-848f-3711beb2da3a"/>
+                            <bpws:empty name="OnMessageEnd"
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="1ba4aeca-b707-4e50-9edc-c39ea5aac6fb"/>
+                            <bpws:reply name="postOut" operation="post"
+                                partnerLink="transfer-addtransfer"
+                                portType="ns0:transfer-addtransfer"
+                                tibex:xpdlId="6b5a311e-cac9-404b-a476-6bf8524f14bc" variable="postOut-input">
+                                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20170810115753PLT" version="2.0"&gt;&lt;xsl:param name="ExternalCommand"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns:postResponse&gt;&lt;item&gt;&lt;xsl:value-of select="$ExternalCommand/output[1]"/&gt;&lt;/item&gt;&lt;/tns:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                <tibex:inputBindings>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20170810115753PLT&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;ExternalCommand&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;item>&#xa;            &lt;xsl:value-of select=&quot;$ExternalCommand/output[1]&quot;/>&#xa;        &lt;/item>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                </tibex:inputBindings>
+                                <bpws:targets>
+                                    <bpws:target linkName="ExternalCommandTopostOut"/>
+                                </bpws:targets>
+                            </bpws:reply>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/externalcommand/xsd/input&quot; xmlns:tns1=&quot;AddTransferRequestSimplified&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;cmd&quot;/>&lt;xsl:param name=&quot;workingDir&quot;/>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;ExternalCommand-input&quot; match=&quot;/&quot;>&lt;tns:CmdInput>&lt;command>&lt;xsl:value-of select=&quot;concat(&amp;quot;cmd /C &amp;quot;, $cmd, &amp;quot; a:AddTransfer&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AllowDelete ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowDelete:&amp;quot;, $post/item/tns1:Element/tns1:AllowDelete) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AllowMakeDirectory ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowMakeDirectory:&amp;quot;, $post/item/tns1:Element/tns1:AllowMakeDirectory) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AllowRemoveDirectory ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowRemoveDirectory:&amp;quot;, $post/item/tns1:Element/tns1:AllowRemoveDirectory) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AllowRename ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowRename:&amp;quot;, $post/item/tns1:Element/tns1:AllowRename) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AllowableProtocol ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowableProtocol:&amp;quot;, $post/item/tns1:Element/tns1:AllowableProtocol) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AuthGroupId ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AuthGroupId:&amp;quot;, $post/item/tns1:Element/tns1:AuthGroupId) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:AvailableDate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AvailableDate:&amp;quot;, $post/item/tns1:Element/tns1:AvailableDate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:CRLF ne &amp;quot;&amp;quot; ) then concat(&amp;quot; CRLF:&amp;quot;, $post/item/tns1:Element/tns1:CRLF) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ChkptInterval ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ChkptInterval:&amp;quot;, $post/item/tns1:Element/tns1:ChkptInterval) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ChkptRestartFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ChkptRestartFlag:&amp;quot;, $post/item/tns1:Element/tns1:ChkptRestartFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ClientCompressFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ClientCompressFlag:&amp;quot;, $post/item/tns1:Element/tns1:ClientCompressFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ClientFileName ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ClientFileName:&amp;quot;, $post/item/tns1:Element/tns1:ClientFileName) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DataType ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DataType:&amp;quot;, $post/item/tns1:Element/tns1:DataType) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DefaultNodePwd ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DefaultNodePwd:&amp;quot;, $post/item/tns1:Element/tns1:DefaultNodePwd) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DefaultNodeUserId ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DefaultNodeUserId:&amp;quot;, $post/item/tns1:Element/tns1:DefaultNodeUserId) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DefaultWinDomain ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DefaultWinDomain:&amp;quot;, $post/item/tns1:Element/tns1:DefaultWinDomain) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:Department ne &amp;quot;&amp;quot; ) then concat(&amp;quot; Department:&amp;quot;, $post/item/tns1:Element/tns1:Department) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:Description ne &amp;quot;&amp;quot; ) then concat(&amp;quot; Description:&amp;quot;, $post/item/tns1:Element/tns1:Description) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DirectoryTransfer ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DirectoryTransfer:&amp;quot;, $post/item/tns1:Element/tns1:DirectoryTransfer) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DisableFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DisableFlag:&amp;quot;, $post/item/tns1:Element/tns1:DisableFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:DownloadUploadFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DownloadUploadFlag:&amp;quot;, $post/item/tns1:Element/tns1:DownloadUploadFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:EmailFailureTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EmailFailureTemplate:&amp;quot;, $post/item/tns1:Element/tns1:EmailFailureTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:EmailNotifyTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EmailNotifyTemplate:&amp;quot;, $post/item/tns1:Element/tns1:EmailNotifyTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:EmailSuccessTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EmailSuccessTemplate:&amp;quot;, $post/item/tns1:Element/tns1:EmailSuccessTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:EncryptFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EncryptFlag:&amp;quot;, $post/item/tns1:Element/tns1:EncryptFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ExpirationDate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ExpirationDate:&amp;quot;, $post/item/tns1:Element/tns1:ExpirationDate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:FTPAlias ne &amp;quot;&amp;quot; ) then concat(&amp;quot; FTPAlias:&amp;quot;, $post/item/tns1:Element/tns1:FTPAlias) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:LocalTranslationTable ne &amp;quot;&amp;quot; ) then concat(&amp;quot; LocalTranslationTable:&amp;quot;, $post/item/tns1:Element/tns1:LocalTranslationTable) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:NotifyEmailTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; NotifyEmailTemplate:&amp;quot;, $post/item/tns1:Element/tns1:NotifyEmailTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:NotifyFileAvailable ne &amp;quot;&amp;quot; ) then concat(&amp;quot; NotifyFileAvailable:&amp;quot;, $post/item/tns1:Element/tns1:NotifyFileAvailable) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:OneTimeFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; OneTimeFlag:&amp;quot;, $post/item/tns1:Element/tns1:OneTimeFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPASCII ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPASCII:&amp;quot;, $post/item/tns1:Element/tns1:PGPASCII) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPCompression ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPCompression:&amp;quot;, $post/item/tns1:Element/tns1:PGPCompression) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPDecrypt ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPDecrypt:&amp;quot;, $post/item/tns1:Element/tns1:PGPDecrypt) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPEncrypt ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPEncrypt:&amp;quot;, $post/item/tns1:Element/tns1:PGPEncrypt) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPEncryptAlgorithm ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPEncryptAlgorithm:&amp;quot;, $post/item/tns1:Element/tns1:PGPEncryptAlgorithm) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPHashAlgorithm ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPHashAlgorithm:&amp;quot;, $post/item/tns1:Element/tns1:PGPHashAlgorithm) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPPrivateKey ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPPrivateKey:&amp;quot;, $post/item/tns1:Element/tns1:PGPPrivateKey) else &amp;quot;&amp;quot;, if ($post/item/tns1:Element/tns1:PGPSign ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPSign:&amp;quot;, $post/item/tns1:Element/tns1:PGPSign) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPPrivateKey ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPPrivateKey:&amp;quot;, $post/item/tns1:Element/tns1:PGPPrivateKey) else &amp;quot;&amp;quot;, if ($post/item/tns1:Element/tns1:PGPSign ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPSign:&amp;quot;, $post/item/tns1:Element/tns1:PGPSign) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPSign ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPSign:&amp;quot;, $post/item/tns1:Element/tns1:PGPSign) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPVerifySignature ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPVerifySignature:&amp;quot;, $post/item/tns1:Element/tns1:PGPVerifySignature) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PGPVerifyUserSignature ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPVerifyUserSignature:&amp;quot;, $post/item/tns1:Element/tns1:PGPVerifyUserSignature) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionType1 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType1:&amp;quot;, $post/item/tns1:Element/tns1:PostActionType1) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionData1 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData1:&amp;quot;, $post/item/tns1:Element/tns1:PostActionData1) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionFlag1 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag1:&amp;quot;, $post/item/tns1:Element/tns1:PostActionFlag1) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionType2 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType2:&amp;quot;, $post/item/tns1:Element/tns1:PostActionType2) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionData2 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData2:&amp;quot;, $post/item/tns1:Element/tns1:PostActionData2) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionFlag2 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag2:&amp;quot;, $post/item/tns1:Element/tns1:PostActionFlag2) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionType3 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType3:&amp;quot;, $post/item/tns1:Element/tns1:PostActionType3) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionData3 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData3:&amp;quot;, $post/item/tns1:Element/tns1:PostActionData3) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionFlag3 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag3:&amp;quot;, $post/item/tns1:Element/tns1:PostActionFlag3) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionType4 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType4:&amp;quot;, $post/item/tns1:Element/tns1:PostActionType4) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionData4 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData4:&amp;quot;, $post/item/tns1:Element/tns1:PostActionData4) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:PostActionFlag4 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag4:&amp;quot;, $post/item/tns1:Element/tns1:PostActionFlag4) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:RemoteTranslationTable ne &amp;quot;&amp;quot; ) then concat(&amp;quot; RemoteTranslationTable:&amp;quot;, $post/item/tns1:Element/tns1:RemoteTranslationTable) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:RemoveTrailingBlanks ne &amp;quot;&amp;quot; ) then concat(&amp;quot; RemoveTrailingBlanks:&amp;quot;, $post/item/tns1:Element/tns1:RemoveTrailingBlanks) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ServerFileName ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ServerFileName:&amp;quot;, $post/item/tns1:Element/tns1:ServerFileName) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ServerName ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ServerName:&amp;quot;, $post/item/tns1:Element/tns1:ServerName) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ToEmailAddrFailure ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ToEmailAddrFailure:&amp;quot;, $post/item/tns1:Element/tns1:ToEmailAddrFailure) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ToEmailAddrSuccess ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ToEmailAddrSuccess:&amp;quot;, $post/item/tns1:Element/tns1:ToEmailAddrSuccess) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:TraceLevelFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; TraceLevelFlag:&amp;quot;, $post/item/tns1:Element/tns1:TraceLevelFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:UserId ne &amp;quot;&amp;quot; ) then concat(&amp;quot; UserId:&amp;quot;, $post/item/tns1:Element/tns1:UserId) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ValidDays ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ValidDays:&amp;quot;, $post/item/tns1:Element/tns1:ValidDays) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ValidStartTime ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ValidStartTime:&amp;quot;, $post/item/tns1:Element/tns1:ValidStartTime) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:ValidEndTime ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ValidEndTime:&amp;quot;, $post/item/tns1:Element/tns1:ValidEndTime) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:WriteMode ne &amp;quot;&amp;quot; ) then concat(&amp;quot; WriteMode:&amp;quot;, $post/item/tns1:Element/tns1:WriteMode) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSAllocPri ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSAllocPri:&amp;quot;, $post/item/tns1:Element/tns1:zOSAllocPri) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSAllocSec ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSAllocSec:&amp;quot;, $post/item/tns1:Element/tns1:zOSAllocSec) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSAllocType ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSAllocType:&amp;quot;, $post/item/tns1:Element/tns1:zOSAllocType) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSBlockSize ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSBlockSize:&amp;quot;, $post/item/tns1:Element/tns1:zOSBlockSize) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSDataClass ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSDataClass:&amp;quot;, $post/item/tns1:Element/tns1:zOSDataClass) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSLRECL ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSLRECL:&amp;quot;, $post/item/tns1:Element/tns1:zOSLRECL) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSMgtClass ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSMgtClass:&amp;quot;, $post/item/tns1:Element/tns1:zOSMgtClass) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSRECFM ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSRECFM:&amp;quot;, $post/item/tns1:Element/tns1:zOSRECFM) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSStorClass ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSStorClass:&amp;quot;, $post/item/tns1:Element/tns1:zOSStorClass) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSUnit ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSUnit:&amp;quot;, $post/item/tns1:Element/tns1:zOSUnit) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post/item/tns1:Element/tns1:zOSVolume ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSVolume:&amp;quot;, $post/item/tns1:Element/tns1:zOSVolume) else &amp;quot;&amp;quot;&amp;#xD;&amp;#xA;)&quot;/>&lt;/command>&lt;workingDirectory>&lt;xsl:value-of select=&quot;$workingDir&quot;/>&lt;/workingDirectory>&lt;/tns:CmdInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="ExternalCommand-input"
+                                    name="ExternalCommand"
+                                    outputVariable="ExternalCommand"
+                                    tibex:xpdlId="6c9c04c2-77ac-4fec-afa1-5fec472d2ad0" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:sources>
+                                    <bpws:source linkName="ExternalCommandTopostOut"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/externalcommand/xsd/input&quot; xmlns:tns1=&quot;AddTransferRequestSimplified&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.item&quot;/>&#xa;    &lt;xsl:param name=&quot;cmd&quot;/>&#xa;    &lt;xsl:param name=&quot;workingDir&quot;/>&#xa;    &lt;xsl:template name=&quot;ExternalCommand-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:CmdInput>&#xa;            &lt;command>&#xa;                &lt;xsl:value-of select=&quot;concat(&amp;quot;cmd /C &amp;quot;, $cmd, &amp;quot; a:AddTransfer&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AllowDelete ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowDelete:&amp;quot;, $post.item/tns1:AllowDelete) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AllowMakeDirectory ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowMakeDirectory:&amp;quot;, $post.item/tns1:AllowMakeDirectory) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AllowRemoveDirectory ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowRemoveDirectory:&amp;quot;, $post.item/tns1:AllowRemoveDirectory) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AllowRename ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowRename:&amp;quot;, $post.item/tns1:AllowRename) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AllowableProtocol ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AllowableProtocol:&amp;quot;, $post.item/tns1:AllowableProtocol) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AuthGroupId ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AuthGroupId:&amp;quot;, $post.item/tns1:AuthGroupId) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:AvailableDate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; AvailableDate:&amp;quot;, $post.item/tns1:AvailableDate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:CRLF ne &amp;quot;&amp;quot; ) then concat(&amp;quot; CRLF:&amp;quot;, $post.item/tns1:CRLF) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ChkptInterval ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ChkptInterval:&amp;quot;, $post.item/tns1:ChkptInterval) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ChkptRestartFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ChkptRestartFlag:&amp;quot;, $post.item/tns1:ChkptRestartFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ClientCompressFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ClientCompressFlag:&amp;quot;, $post.item/tns1:ClientCompressFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ClientFileName ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ClientFileName:&amp;quot;, $post.item/tns1:ClientFileName) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DataType ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DataType:&amp;quot;, $post.item/tns1:DataType) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DefaultNodePwd ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DefaultNodePwd:&amp;quot;, $post.item/tns1:DefaultNodePwd) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DefaultNodeUserId ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DefaultNodeUserId:&amp;quot;, $post.item/tns1:DefaultNodeUserId) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DefaultWinDomain ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DefaultWinDomain:&amp;quot;, $post.item/tns1:DefaultWinDomain) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:Department ne &amp;quot;&amp;quot; ) then concat(&amp;quot; Department:&amp;quot;, $post.item/tns1:Department) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:Description ne &amp;quot;&amp;quot; ) then concat(&amp;quot; Description:&amp;quot;, $post.item/tns1:Description) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DirectoryTransfer ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DirectoryTransfer:&amp;quot;, $post.item/tns1:DirectoryTransfer) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DisableFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DisableFlag:&amp;quot;, $post.item/tns1:DisableFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:DownloadUploadFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; DownloadUploadFlag:&amp;quot;, $post.item/tns1:DownloadUploadFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:EmailFailureTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EmailFailureTemplate:&amp;quot;, $post.item/tns1:EmailFailureTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:EmailNotifyTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EmailNotifyTemplate:&amp;quot;, $post.item/tns1:EmailNotifyTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:EmailSuccessTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EmailSuccessTemplate:&amp;quot;, $post.item/tns1:EmailSuccessTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:EncryptFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; EncryptFlag:&amp;quot;, $post.item/tns1:EncryptFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ExpirationDate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ExpirationDate:&amp;quot;, $post.item/tns1:ExpirationDate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:FTPAlias ne &amp;quot;&amp;quot; ) then concat(&amp;quot; FTPAlias:&amp;quot;, $post.item/tns1:FTPAlias) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:LocalTranslationTable ne &amp;quot;&amp;quot; ) then concat(&amp;quot; LocalTranslationTable:&amp;quot;, $post.item/tns1:LocalTranslationTable) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:NotifyEmailTemplate ne &amp;quot;&amp;quot; ) then concat(&amp;quot; NotifyEmailTemplate:&amp;quot;, $post.item/tns1:NotifyEmailTemplate) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:NotifyFileAvailable ne &amp;quot;&amp;quot; ) then concat(&amp;quot; NotifyFileAvailable:&amp;quot;, $post.item/tns1:NotifyFileAvailable) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:OneTimeFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; OneTimeFlag:&amp;quot;, $post.item/tns1:OneTimeFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPASCII ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPASCII:&amp;quot;, $post.item/tns1:PGPASCII) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPCompression ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPCompression:&amp;quot;, $post.item/tns1:PGPCompression) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPDecrypt ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPDecrypt:&amp;quot;, $post.item/tns1:PGPDecrypt) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPEncrypt ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPEncrypt:&amp;quot;, $post.item/tns1:PGPEncrypt) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPEncryptAlgorithm ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPEncryptAlgorithm:&amp;quot;, $post.item/tns1:PGPEncryptAlgorithm) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPHashAlgorithm ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPHashAlgorithm:&amp;quot;, $post.item/tns1:PGPHashAlgorithm) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPPrivateKey ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPPrivateKey:&amp;quot;, $post.item/tns1:PGPPrivateKey) else &amp;quot;&amp;quot;, if ($post.item/tns1:PGPSign ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPSign:&amp;quot;, $post.item/tns1:PGPSign) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPPrivateKey ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPPrivateKey:&amp;quot;, $post.item/tns1:PGPPrivateKey) else &amp;quot;&amp;quot;, if ($post.item/tns1:PGPSign ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPSign:&amp;quot;, $post.item/tns1:PGPSign) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPSign ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPSign:&amp;quot;, $post.item/tns1:PGPSign) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPVerifySignature ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPVerifySignature:&amp;quot;, $post.item/tns1:PGPVerifySignature) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PGPVerifyUserSignature ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PGPVerifyUserSignature:&amp;quot;, $post.item/tns1:PGPVerifyUserSignature) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionType1 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType1:&amp;quot;, $post.item/tns1:PostActionType1) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionData1 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData1:&amp;quot;, $post.item/tns1:PostActionData1) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionFlag1 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag1:&amp;quot;, $post.item/tns1:PostActionFlag1) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionType2 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType2:&amp;quot;, $post.item/tns1:PostActionType2) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionData2 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData2:&amp;quot;, $post.item/tns1:PostActionData2) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionFlag2 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag2:&amp;quot;, $post.item/tns1:PostActionFlag2) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionType3 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType3:&amp;quot;, $post.item/tns1:PostActionType3) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionData3 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData3:&amp;quot;, $post.item/tns1:PostActionData3) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionFlag3 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag3:&amp;quot;, $post.item/tns1:PostActionFlag3) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionType4 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionType4:&amp;quot;, $post.item/tns1:PostActionType4) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionData4 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionData4:&amp;quot;, $post.item/tns1:PostActionData4) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:PostActionFlag4 ne &amp;quot;&amp;quot; ) then concat(&amp;quot; PostActionFlag4:&amp;quot;, $post.item/tns1:PostActionFlag4) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:RemoteTranslationTable ne &amp;quot;&amp;quot; ) then concat(&amp;quot; RemoteTranslationTable:&amp;quot;, $post.item/tns1:RemoteTranslationTable) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:RemoveTrailingBlanks ne &amp;quot;&amp;quot; ) then concat(&amp;quot; RemoveTrailingBlanks:&amp;quot;, $post.item/tns1:RemoveTrailingBlanks) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ServerFileName ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ServerFileName:&amp;quot;, $post.item/tns1:ServerFileName) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ServerName ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ServerName:&amp;quot;, $post.item/tns1:ServerName) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ToEmailAddrFailure ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ToEmailAddrFailure:&amp;quot;, $post.item/tns1:ToEmailAddrFailure) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ToEmailAddrSuccess ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ToEmailAddrSuccess:&amp;quot;, $post.item/tns1:ToEmailAddrSuccess) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:TraceLevelFlag ne &amp;quot;&amp;quot; ) then concat(&amp;quot; TraceLevelFlag:&amp;quot;, $post.item/tns1:TraceLevelFlag) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:UserId ne &amp;quot;&amp;quot; ) then concat(&amp;quot; UserId:&amp;quot;, $post.item/tns1:UserId) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ValidDays ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ValidDays:&amp;quot;, $post.item/tns1:ValidDays) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ValidStartTime ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ValidStartTime:&amp;quot;, $post.item/tns1:ValidStartTime) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:ValidEndTime ne &amp;quot;&amp;quot; ) then concat(&amp;quot; ValidEndTime:&amp;quot;, $post.item/tns1:ValidEndTime) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:WriteMode ne &amp;quot;&amp;quot; ) then concat(&amp;quot; WriteMode:&amp;quot;, $post.item/tns1:WriteMode) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSAllocPri ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSAllocPri:&amp;quot;, $post.item/tns1:zOSAllocPri) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSAllocSec ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSAllocSec:&amp;quot;, $post.item/tns1:zOSAllocSec) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSAllocType ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSAllocType:&amp;quot;, $post.item/tns1:zOSAllocType) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSBlockSize ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSBlockSize:&amp;quot;, $post.item/tns1:zOSBlockSize) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSDataClass ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSDataClass:&amp;quot;, $post.item/tns1:zOSDataClass) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSLRECL ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSLRECL:&amp;quot;, $post.item/tns1:zOSLRECL) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSMgtClass ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSMgtClass:&amp;quot;, $post.item/tns1:zOSMgtClass) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSRECFM ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSRECFM:&amp;quot;, $post.item/tns1:zOSRECFM) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSStorClass ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSStorClass:&amp;quot;, $post.item/tns1:zOSStorClass) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSUnit ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSUnit:&amp;quot;, $post.item/tns1:zOSUnit) else &amp;quot;&amp;quot;,&amp;#xD;&amp;#xA;if ($post.item/tns1:zOSVolume ne &amp;quot;&amp;quot; ) then concat(&amp;quot; zOSVolume:&amp;quot;, $post.item/tns1:zOSVolume) else &amp;quot;&amp;quot;&amp;#xD;&amp;#xA;)&quot;/>&#xa;            &lt;/command>&#xa;            &lt;workingDirectory>&#xa;                &lt;xsl:value-of select=&quot;$workingDir&quot;/>&#xa;            &lt;/workingDirectory>&#xa;        &lt;/tns:CmdInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.externalcommand"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//ExternalCommand"/>
+                                    <value
+                                    outputCommandOutput="true" xsi:type="generalactivities:ExternalCommand"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                        </bpws:flow>
+                    </bpws:scope>
+                </bpws:onMessage>
+            </bpws:pick>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

@@ -1,0 +1,54 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to display configuration parameters from a specified user profile definition from the MFTCC server definition table.",
+    "description" : "Command action is used to display configuration parameters from a specified user profile definition from the MFTCC server definition table."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/user/getuserprofiles" : {
+      "post" : {
+        "description" : "Get user profiles.",
+        "operationId" : "post-user-getuserprofiles",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "GroupId" : {
+          "type" : "string"
+        },
+        "NodeName" : {
+          "type" : "string"
+        },
+        "UserId" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

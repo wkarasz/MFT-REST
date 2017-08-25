@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_Y5VTEH1HEeeEdpfNS_qfXg" targetNamespace="http://tns.tibco.com/bw/composite/REST-CLI.module" name="REST-CLI.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_uxRykn1OEeeEdpfNS_qfXg" name="department-adddepartment" promote="ComponentaddDepartment/department-adddepartment">
+    <sca:interface.wsdl xmi:id="_uxa8g31OEeeEdpfNS_qfXg" interface="http://xmlns.example.com/20170809175938PLT#wsdl.interface(department-adddepartment)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_uxa8hH1OEeeEdpfNS_qfXg" name="RestService1" path="/department/adddepartment" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Department/AddDepartment" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DepartmentCommands.addDepartment-department.json">
+      <operation xmi:id="_uxa8hX1OEeeEdpfNS_qfXg" operationName="post" nickname="post-department-adddepartment" httpMethod="POST" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_uxa8h31OEeeEdpfNS_qfXg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_uxa8hn1OEeeEdpfNS_qfXg" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_aX6G4X1oEeeOtd9Rxpa0IQ" name="misc-getproductnameversion" promote="ComponentgetProductNameVersion/misc-getproductnameversion">
+    <sca:interface.wsdl xmi:id="_aYNo4H1oEeeOtd9Rxpa0IQ" interface="http://xmlns.example.com/20170809210644PLT#wsdl.interface(misc-getproductnameversion)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_aYWy0H1oEeeOtd9Rxpa0IQ" name="RestService3" path="/misc/getproductnameversion" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Misc/GetProductNameVersion" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/MiscCommands.getProductNameVersion-misc-getproductnameversion.json">
+      <operation xmi:id="_aYWy0X1oEeeOtd9Rxpa0IQ" operationName="get" nickname="get-misc-getproductnameversion" httpMethod="GET" responseStyle="array">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_aYWy031oEeeOtd9Rxpa0IQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_aYWy0n1oEeeOtd9Rxpa0IQ" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_GXufpH10EeeOtd9Rxpa0IQ" name="audit-getaudit" promote="ComponentAuditGetAudit/audit-getaudit">
+    <sca:interface.wsdl xmi:id="_GXufqH10EeeOtd9Rxpa0IQ" interface="http://xmlns.example.com/20170809223205PLT#wsdl.interface(audit-getaudit)" scaext:wsdlLocation="../Processes/AuditCommands/AuditGetAudit.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_GXufqX10EeeOtd9Rxpa0IQ" name="RestService" path="/audit/getaudit/{id}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Audit/GetAudit" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/AuditCommands.AuditGetAudit-Audit-GetAudit.json">
+      <operation xmi:id="_GXufqn10EeeOtd9Rxpa0IQ" operationName="get" nickname="get-audit-getaudit" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_GX4QoH10EeeOtd9Rxpa0IQ">
+        <parameterMapping xmi:id="_GX4QoX10EeeOtd9Rxpa0IQ" parameterName="id" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_GXufq310EeeOtd9Rxpa0IQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_B2Fjon14EeeOtd9Rxpa0IQ" name="audit-removeaudit" promote="ComponentremoveAudit/audit-removeaudit">
+    <sca:interface.wsdl xmi:id="_B2Fjpn14EeeOtd9Rxpa0IQ" interface="http://xmlns.example.com/20170809225902PLT#wsdl.interface(audit-removeaudit)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_B2Fjp314EeeOtd9Rxpa0IQ" name="RestService2" path="/audit/removeaudit" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Audit/RemoveAudit" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/AuditCommands.removeAudit-Audit-RemoveAudit.json">
+      <operation xmi:id="_B2FjqH14EeeOtd9Rxpa0IQ" operationName="post" nickname="post-audit-removeaudit" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_B2Fjqn14EeeOtd9Rxpa0IQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_B2FjqX14EeeOtd9Rxpa0IQ" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_zENVAn3KEeeiYMh8KwFy-g" name="audit-searchforaudits" promote="ComponentsearchForAudits/audit-searchforaudits">
+    <sca:interface.wsdl xmi:id="_zENVBn3KEeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810055131PLT#wsdl.interface(audit-searchforaudits)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_zEN8EH3KEeeiYMh8KwFy-g" name="RestService4" path="/audit/searchforaudits" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Audit/SearchForAudits" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/AuditCommands.searchForAudits-Audit-SearchForAudits.json">
+      <operation xmi:id="_zEN8EX3KEeeiYMh8KwFy-g" operationName="post" nickname="post-audit-searchforaudits" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_zEaJUH3KEeeiYMh8KwFy-g"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_zEN8En3KEeeiYMh8KwFy-g" bindingName="RestService4"/>
+  </sca:service>
+  <sca:service xmi:id="_tikQYn3VEeeiYMh8KwFy-g" name="server-addserver" promote="ComponentaddServer/server-addserver">
+    <sca:interface.wsdl xmi:id="_tik3cH3VEeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810065838PLT#wsdl.interface(server-addserver)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_tik3cX3VEeeiYMh8KwFy-g" name="RestService5" path="/server/addserver" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Server/AddServer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/ServerCommands.addServer-Server-AddServer.json">
+      <operation xmi:id="_tilegH3VEeeiYMh8KwFy-g" operationName="post" nickname="post-server-addserver" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_tiszQH3VEeeiYMh8KwFy-g"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_tilegX3VEeeiYMh8KwFy-g" bindingName="RestService5"/>
+  </sca:service>
+  <sca:service xmi:id="__wyCkH38EeeiYMh8KwFy-g" name="server-getserver" promote="ComponentgetServer/server-getserver">
+    <sca:interface.wsdl xmi:id="__wyClH38EeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810115024PLT#wsdl.interface(server-getserver)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="__wypoH38EeeiYMh8KwFy-g" name="RestService6" path="/server/getserver/{servername}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Server/GetServer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/ServerCommands.getServer-Server-GetServer.json">
+      <operation xmi:id="__wzQsH38EeeiYMh8KwFy-g" operationName="get" nickname="get-server-getserver" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="__w6lcH38EeeiYMh8KwFy-g">
+        <parameterMapping xmi:id="__w6lcX38EeeiYMh8KwFy-g" parameterName="servername" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="__wzQsX38EeeiYMh8KwFy-g" bindingName="RestService6"/>
+  </sca:service>
+  <sca:service xmi:id="_eieGwn4AEeeiYMh8KwFy-g" name="transfer-addtransfer" promote="ComponentaddTransfer/transfer-addtransfer">
+    <sca:interface.wsdl xmi:id="_eif78X4AEeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810115753PLT#wsdl.interface(transfer-addtransfer)" scaext:wsdlLocation="../Processes/TransferCommands/addTransfer.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_eif78n4AEeeiYMh8KwFy-g" name="RestService7" path="/transfer/addtransfer" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/AddTransfer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.addTransfer-Transfer-AddTransfer.json">
+      <operation xmi:id="_eigjAH4AEeeiYMh8KwFy-g" operationName="post" nickname="post-transfer-addtransfer" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_einQsH4AEeeiYMh8KwFy-g"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_eigjAX4AEeeiYMh8KwFy-g" bindingName="RestService7"/>
+  </sca:service>
+  <sca:service xmi:id="_BNTgcIIaEee6Bt6aqaV5bQ" name="department-getdepartment" promote="ComponentgetDepartment/department-getdepartment">
+    <sca:interface.wsdl xmi:id="_BNd4gIIaEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815172830PLT#wsdl.interface(department-getdepartment)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_BNhi4IIaEee6Bt6aqaV5bQ" name="RestService8" path="/department/getdepartment/{name}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Department/GetDepartment" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DepartmentCommands.getDepartment-Department-GetDepartment.json">
+      <operation xmi:id="_BNiJ8IIaEee6Bt6aqaV5bQ" operationName="get" nickname="get-department-getdepartment" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_BNpesIIaEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_BNpesYIaEee6Bt6aqaV5bQ" parameterName="name" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_BNixAIIaEee6Bt6aqaV5bQ" bindingName="RestService8"/>
+  </sca:service>
+  <sca:service xmi:id="_wmm-gIIaEee6Bt6aqaV5bQ" name="department-removedepartment" promote="ComponentremoveDepartment/department-removedepartment">
+    <sca:interface.wsdl xmi:id="_wmm-hIIaEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815173259PLT#wsdl.interface(department-removedepartment)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_wmnlkIIaEee6Bt6aqaV5bQ" name="RestService9" path="/department/removedepartment" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Department/RemoveDepartment" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DepartmentCommands.removeDepartment-Department-RemoveDepartment.json">
+      <operation xmi:id="_wmoMoIIaEee6Bt6aqaV5bQ" operationName="post" nickname="post-department-removedepartment" httpMethod="POST" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_wmqo4IIaEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_wmoMoYIaEee6Bt6aqaV5bQ" bindingName="RestService9"/>
+  </sca:service>
+  <sca:service xmi:id="_aw9EYIIbEee6Bt6aqaV5bQ" name="department-retrievealldepartments" promote="ComponentretrieveAllDepartments/department-retrievealldepartments">
+    <sca:interface.wsdl xmi:id="_aw9EZIIbEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815173734PLT#wsdl.interface(department-retrievealldepartments)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_aw9rcIIbEee6Bt6aqaV5bQ" name="RestService10" path="/department/retrievealldepartments" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Department/RetrieveAllDepartments" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DepartmentCommands.retrieveAllDepartments-Department-RetrieveAllDepartments.json">
+      <operation xmi:id="_aw9rcYIbEee6Bt6aqaV5bQ" operationName="get" nickname="get-department-retrievealldepartments" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_axB84IIbEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_aw9rcoIbEee6Bt6aqaV5bQ" bindingName="RestService10"/>
+  </sca:service>
+  <sca:service xmi:id="_BMhLYoIcEee6Bt6aqaV5bQ" name="department-updatedepartment" promote="ComponentupdateDepartment/department-updatedepartment">
+    <sca:interface.wsdl xmi:id="_BMhycoIcEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815174125PLT#wsdl.interface(department-updatedepartment)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_BMhyc4IcEee6Bt6aqaV5bQ" name="RestService11" path="/department/updatedepartment" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Department/UpdateDepartment" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DepartmentCommands.updateDepartment-Department-UpdateDepartment.json">
+      <operation xmi:id="_BMiZgIIcEee6Bt6aqaV5bQ" operationName="post" nickname="post-department-updatedepartment" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_BMlc0IIcEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_BMiZgYIcEee6Bt6aqaV5bQ" bindingName="RestService11"/>
+  </sca:service>
+  <sca:service xmi:id="_C3b_oIIdEee6Bt6aqaV5bQ" name="group-addgroup" promote="ComponentaddGroup/group-addgroup">
+    <sca:interface.wsdl xmi:id="_C3b_pIIdEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815174917PLT#wsdl.interface(group-addgroup)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_C3cmsIIdEee6Bt6aqaV5bQ" name="RestService12" path="/group/addgroup" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/AddGroup" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.addGroup-Group-AddGroup.json">
+      <operation xmi:id="_C3cmsYIdEee6Bt6aqaV5bQ" operationName="post" nickname="post-group-addgroup" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_C3iGQIIdEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_C3cmsoIdEee6Bt6aqaV5bQ" bindingName="RestService12"/>
+  </sca:service>
+  <sca:service xmi:id="_Kdt_EIIeEee6Bt6aqaV5bQ" name="group-addusertogroup" promote="ComponentaddUserToGroup/group-addusertogroup">
+    <sca:interface.wsdl xmi:id="_KdumIoIeEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815175720PLT#wsdl.interface(group-addusertogroup)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_KdvNMIIeEee6Bt6aqaV5bQ" name="RestService13" path="/group/addusertogroup" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/AddUserToGroup" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.addUserToGroup-Group-AddUserToGroup.json">
+      <operation xmi:id="_Kdv0QIIeEee6Bt6aqaV5bQ" operationName="post" nickname="post-group-addusertogroup" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_KdyQgIIeEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Kdv0QYIeEee6Bt6aqaV5bQ" bindingName="RestService13"/>
+  </sca:service>
+  <sca:service xmi:id="_dTTvkIIfEee6Bt6aqaV5bQ" name="group-getgroup" promote="ComponentgetGroup/group-getgroup">
+    <sca:interface.wsdl xmi:id="_dTTvlIIfEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815180626PLT#wsdl.interface(group-getgroup)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_dTUWoIIfEee6Bt6aqaV5bQ" name="RestService14" path="/group/getgroup/{Group}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/GetGroup" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.getGroup-Group-GetGroup.json">
+      <operation xmi:id="_dTUWoYIfEee6Bt6aqaV5bQ" operationName="get" nickname="get-group-getgroup" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_dTXZ8IIfEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_dTXZ8YIfEee6Bt6aqaV5bQ" parameterName="Group" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_dTU9sIIfEee6Bt6aqaV5bQ" bindingName="RestService14"/>
+  </sca:service>
+  <sca:service xmi:id="_UTffcoIgEee6Bt6aqaV5bQ" name="group-removegroup" promote="ComponentremoveGroup/group-removegroup">
+    <sca:interface.wsdl xmi:id="_UTgtkIIgEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815181330PLT#wsdl.interface(group-removegroup)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_UThUoIIgEee6Bt6aqaV5bQ" name="RestService15" path="/group/removegroup/{group}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/RemoveGroup" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.removeGroup-Group-RemoveGroup.json">
+      <operation xmi:id="_UThUoYIgEee6Bt6aqaV5bQ" operationName="delete" nickname="delete-group-removegroup" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_UTkX8IIgEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_UTkX8YIgEee6Bt6aqaV5bQ" parameterName="group" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_UThUooIgEee6Bt6aqaV5bQ" bindingName="RestService15"/>
+  </sca:service>
+  <sca:service xmi:id="_3g2lEoIgEee6Bt6aqaV5bQ" name="group-retrieveallgroups" promote="ComponentretrieveAllGroups/group-retrieveallgroups">
+    <sca:interface.wsdl xmi:id="_3g3MIIIgEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815181731PLT#wsdl.interface(group-retrieveallgroups)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_3g3MIYIgEee6Bt6aqaV5bQ" name="RestService16" path="/group/retrieveallgroups" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/RetrieveAllGroups" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.retrieveAllGroups-Group-RetrieveAllGroups.json">
+      <operation xmi:id="_3g3zMIIgEee6Bt6aqaV5bQ" operationName="get" nickname="get-group-retrieveallgroups" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_3g62gIIgEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_3g3zMYIgEee6Bt6aqaV5bQ" bindingName="RestService16"/>
+  </sca:service>
+  <sca:service xmi:id="_Vr9RwoIhEee6Bt6aqaV5bQ" name="group-retrieveallgroupsforuser" promote="ComponentretrieveAllGroupsForUser/group-retrieveallgroupsforuser">
+    <sca:interface.wsdl xmi:id="_Vr9404IhEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815182052PLT#wsdl.interface(group-retrieveallgroupsforuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Vr-f4IIhEee6Bt6aqaV5bQ" name="RestService17" path="/group/retrieveallgroupsforuser/{user}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/RetrieveAllGroupsForUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.retrieveAllGroupsForUser-Group-RetrieveAllGroupsForUser.json">
+      <operation xmi:id="_Vr-f4YIhEee6Bt6aqaV5bQ" operationName="get" nickname="get-group-retrieveallgroupsforuser" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_VsBjMIIhEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_VsBjMYIhEee6Bt6aqaV5bQ" parameterName="user" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Vr-f4oIhEee6Bt6aqaV5bQ" bindingName="RestService17"/>
+  </sca:service>
+  <sca:service xmi:id="_9pxOooIhEee6Bt6aqaV5bQ" name="group-retrieveallusersingroup" promote="ComponentretrieveAllUsersInGroup/group-retrieveallusersingroup">
+    <sca:interface.wsdl xmi:id="_9px1sIIhEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815182454PLT#wsdl.interface(group-retrieveallusersingroup)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_9px1sYIhEee6Bt6aqaV5bQ" name="RestService18" path="/group/retrieveallusersingroup/{group}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/RetrieveAllUsersInGroup" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.retrieveAllUsersInGroup-Group-RetrieveAllUsersInGroup.json">
+      <operation xmi:id="_9pycwIIhEee6Bt6aqaV5bQ" operationName="get" nickname="get-group-retrieveallusersingroup" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_9p1gEIIhEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_9p1gEYIhEee6Bt6aqaV5bQ" parameterName="group" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_9pycwYIhEee6Bt6aqaV5bQ" bindingName="RestService18"/>
+  </sca:service>
+  <sca:service xmi:id="_pTvUMoIiEee6Bt6aqaV5bQ" name="group-removeuserfromgroup" promote="ComponentremoveUserFromGroup/group-removeuserfromgroup">
+    <sca:interface.wsdl xmi:id="_pTvUNoIiEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815182856PLT#wsdl.interface(group-removeuserfromgroup)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_pTv7QIIiEee6Bt6aqaV5bQ" name="RestService19" path="/group/removeuserfromgroup" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Group/RemoveUserFromGroup" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/GroupCommands.removeUserFromGroup-Group-RemoveUserFromGroup.json">
+      <operation xmi:id="_pTv7QYIiEee6Bt6aqaV5bQ" operationName="delete" nickname="delete-group-removeuserfromgroup" httpMethod="DELETE" responseStyle="element" requestStyle="element">
+        <parameters xmi:id="_44ajAIIiEee6Bt6aqaV5bQ">
+          <parameterMapping xmi:id="_B-0t4IIjEee6Bt6aqaV5bQ" parameterName="group" parameterType="Query" dataType="string"/>
+          <parameterMapping xmi:id="_CGbxwIIjEee6Bt6aqaV5bQ" parameterName="user" parameterType="Query" dataType="string"/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_pTy-kIIiEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_pTv7QoIiEee6Bt6aqaV5bQ" bindingName="RestService19"/>
+  </sca:service>
+  <sca:service xmi:id="_aKYdgoIkEee6Bt6aqaV5bQ" name="role-addusertorole" promote="ComponentAddUserToRole/role-addusertorole">
+    <sca:interface.wsdl xmi:id="_aKYdhoIkEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815184056PLT#wsdl.interface(role-addusertorole)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_aKZEkIIkEee6Bt6aqaV5bQ" name="RestService20" path="/role/addusertorole" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Role/AddUserToRole" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/RoleCommands.AddUserToRole-Role-AddUserToRole.json">
+      <operation xmi:id="_aKZroIIkEee6Bt6aqaV5bQ" operationName="patch" nickname="patch-role-addusertorole" httpMethod="PATCH" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_aKcu8IIkEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_aKZroYIkEee6Bt6aqaV5bQ" bindingName="RestService20"/>
+  </sca:service>
+  <sca:service xmi:id="_Be1UUoIlEee6Bt6aqaV5bQ" name="role-getrole" promote="ComponentgetRole/role-getrole">
+    <sca:interface.wsdl xmi:id="_Be1UVoIlEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815184703PLT#wsdl.interface(role-getrole)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Be1UV4IlEee6Bt6aqaV5bQ" name="RestService21" path="/role/getrole/{role}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Role/GetRole" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/RoleCommands.getRole-Role-GetRole.json">
+      <operation xmi:id="_Be17YIIlEee6Bt6aqaV5bQ" operationName="get" nickname="get-role-getrole" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Be6z4IIlEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_Be6z4YIlEee6Bt6aqaV5bQ" parameterName="role" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Be17YYIlEee6Bt6aqaV5bQ" bindingName="RestService21"/>
+  </sca:service>
+  <sca:service xmi:id="_tLrHsoIlEee6Bt6aqaV5bQ" name="role-retrieveallroles" promote="ComponentretrieveAllRoles/role-retrieveallroles">
+    <sca:interface.wsdl xmi:id="_tLruw4IlEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815185232PLT#wsdl.interface(role-retrieveallroles)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_tLruxIIlEee6Bt6aqaV5bQ" name="RestService22" path="/role/retrieveallroles" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Role/RetrieveAllRoles" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/RoleCommands.retrieveAllRoles-Role-RetrieveAllRoles.json">
+      <operation xmi:id="_tLsV0IIlEee6Bt6aqaV5bQ" operationName="get" nickname="get-role-retrieveallroles" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_tLwAMIIlEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_tLsV0YIlEee6Bt6aqaV5bQ" bindingName="RestService22"/>
+  </sca:service>
+  <sca:service xmi:id="_E6H6AIImEee6Bt6aqaV5bQ" name="role-retrieveallrolesforuser" promote="ComponentretrieveAllRolesForUser/role-retrieveallrolesforuser">
+    <sca:interface.wsdl xmi:id="_E6H6BIImEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815185443PLT#wsdl.interface(role-retrieveallrolesforuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_E6IhEIImEee6Bt6aqaV5bQ" name="RestService23" path="/role/retrieveallrolesforuser/{user}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Role/RetrieveAllRolesForUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/RoleCommands.retrieveAllRolesForUser-Role-RetrieveAllRolesForUser.json">
+      <operation xmi:id="_E6JIIIImEee6Bt6aqaV5bQ" operationName="get" nickname="get-role-retrieveallrolesforuser" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_E6OAoIImEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_E6OAoYImEee6Bt6aqaV5bQ" parameterName="user" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_E6JIIYImEee6Bt6aqaV5bQ" bindingName="RestService23"/>
+  </sca:service>
+  <sca:service xmi:id="_l5FOYoImEee6Bt6aqaV5bQ" name="role-retrieveallusersinrole" promote="ComponentretrieveAllUsersInRole/role-retrieveallusersinrole">
+    <sca:interface.wsdl xmi:id="_l5F1coImEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815185839PLT#wsdl.interface(role-retrieveallusersinrole)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_l5F1c4ImEee6Bt6aqaV5bQ" name="RestService24" path="/role/retrieveallusersinrole/{role}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Role/RetrieveAllUsersInRole" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/RoleCommands.retrieveAllUsersInRole-Role-RetrieveAllUsersInRole.json">
+      <operation xmi:id="_l5GcgIImEee6Bt6aqaV5bQ" operationName="get" nickname="get-role-retrieveallusersinrole" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_l5L8EIImEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_l5L8EYImEee6Bt6aqaV5bQ" parameterName="role" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_l5GcgYImEee6Bt6aqaV5bQ" bindingName="RestService24"/>
+  </sca:service>
+  <sca:service xmi:id="_fqNb4oInEee6Bt6aqaV5bQ" name="role-removeuserfromrole" promote="ComponentremoveUserFromRole/role-removeuserfromrole">
+    <sca:interface.wsdl xmi:id="_fqOC8IInEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815190236PLT#wsdl.interface(role-removeuserfromrole)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_fqOC8YInEee6Bt6aqaV5bQ" name="RestService25" path="/role/removeuserfromrole" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Role/RemoveUserFromRole" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/RoleCommands.removeUserFromRole-Role-RemoveUserFromRole.json">
+      <operation xmi:id="_fqOqAIInEee6Bt6aqaV5bQ" operationName="patch" nickname="patch-role-removeuserfromrole" httpMethod="PATCH" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_fqRtUIInEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_fqOqAYInEee6Bt6aqaV5bQ" bindingName="RestService25"/>
+  </sca:service>
+  <sca:service xmi:id="_GskdIoIoEee6Bt6aqaV5bQ" name="server-retrieveallservers" promote="ComponentretrieveAllServers/server-retrieveallservers">
+    <sca:interface.wsdl xmi:id="_GskdJoIoEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815190857PLT#wsdl.interface(server-retrieveallservers)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_GslEMIIoEee6Bt6aqaV5bQ" name="RestService26" path="/server/retrieveallservers" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Server/RetrieveAllServers" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/ServerCommands.retrieveAllServers-Server-RetrieveAllServers.json">
+      <operation xmi:id="_GslrQIIoEee6Bt6aqaV5bQ" operationName="get" nickname="get-server-retrieveallservers" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_GsoukIIoEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_GslrQYIoEee6Bt6aqaV5bQ" bindingName="RestService26"/>
+  </sca:service>
+  <sca:service xmi:id="_QaPM8IKDEee6Bt6aqaV5bQ" name="server-removeserver" promote="ComponentremoveServer/server-removeserver">
+    <sca:interface.wsdl xmi:id="_QaPM9IKDEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815191155PLT#wsdl.interface(server-removeserver)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_QaP0AIKDEee6Bt6aqaV5bQ" name="RestService27" path="/server/removeserver/{server}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Server/RemoveServer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/ServerCommands.removeServer-Server-RemoveServer.json">
+      <operation xmi:id="_QaP0AYKDEee6Bt6aqaV5bQ" operationName="delete" nickname="delete-server-removeserver" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_QaXIwIKDEee6Bt6aqaV5bQ">
+        <parameterMapping xmi:id="_QaXIwYKDEee6Bt6aqaV5bQ" parameterName="server" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_QaP0AoKDEee6Bt6aqaV5bQ" bindingName="RestService27"/>
+  </sca:service>
+  <sca:service xmi:id="_kDtBsIKVEee6Bt6aqaV5bQ" name="server-updateserver" promote="ComponentUpdateServer/server-updateserver">
+    <sca:interface.wsdl xmi:id="_kDtBtIKVEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170816073521PLT#wsdl.interface(server-updateserver)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_kDtowIKVEee6Bt6aqaV5bQ" name="RestService28" path="/server/updateserver" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Server/UpdateServer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/ServerCommands.UpdateServer-Server-UpdateServer.json">
+      <operation xmi:id="_kDtowYKVEee6Bt6aqaV5bQ" operationName="patch" nickname="patch-server-updateserver" httpMethod="PATCH" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_kD4n4IKVEee6Bt6aqaV5bQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_kDtowoKVEee6Bt6aqaV5bQ" bindingName="RestService28"/>
+  </sca:service>
+  <sca:service xmi:id="_EHku4IjNEee1HqRH1igrVg" name="session-deletesession" promote="ComponentdeleteSessionId/session-deletesession">
+    <sca:interface.wsdl xmi:id="_EHrckIjNEee1HqRH1igrVg" interface="http://xmlns.example.com/20170816082430PLT#wsdl.interface(session-deletesession)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_EHvuAIjNEee1HqRH1igrVg" name="RestService29" path="/session/deletesession/{sessionid}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Session/DeleteSession" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SessionCommands.deleteSessionId-Session-DeleteSession.json">
+      <operation xmi:id="_EHwVEIjNEee1HqRH1igrVg" operationName="delete" nickname="delete-session-deletesession" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_EH0mgIjNEee1HqRH1igrVg">
+        <parameterMapping xmi:id="_EH0mgYjNEee1HqRH1igrVg" parameterName="sessionid" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_EHwVEYjNEee1HqRH1igrVg" bindingName="RestService29"/>
+  </sca:service>
+  <sca:service xmi:id="_4vY5MojNEee1HqRH1igrVg" name="session-deleteexpiredsessionids" promote="ComponentdeleteExpiredSessionIds/session-deleteexpiredsessionids">
+    <sca:interface.wsdl xmi:id="_4vaHUIjNEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824061006PLT#wsdl.interface(session-deleteexpiredsessionids)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_4vauYIjNEee1HqRH1igrVg" name="RestService30" path="/session/deleteexpiredsessionids" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Session/DeleteExpiredSessionIds" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SessionCommands.deleteExpiredSessionIds-Session-DeleteExpiredSessionIds.json">
+      <operation xmi:id="_4vbVcIjNEee1HqRH1igrVg" operationName="delete" nickname="delete-session-deleteexpiredsessionids" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_4vb8gIjNEee1HqRH1igrVg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_4vbVcYjNEee1HqRH1igrVg" bindingName="RestService30"/>
+  </sca:service>
+  <sca:service xmi:id="_wdd0YojPEee1HqRH1igrVg" name="session-getexpiredsessionids" promote="ComponentgetExpiredSessionIds/session-getexpiredsessionids">
+    <sca:interface.wsdl xmi:id="_wdd0ZojPEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824061504PLT#wsdl.interface(session-getexpiredsessionids)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_wdebcIjPEee1HqRH1igrVg" name="RestService31" path="/session/getexpiredsessionids" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Session/GetExpiredSessionIds" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SessionCommands.getExpiredSessionIds-Session-GetExpiredSessionIds.json">
+      <operation xmi:id="_wdfCgIjPEee1HqRH1igrVg" operationName="get" nickname="get-session-getexpiredsessionids" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_wdfpkIjPEee1HqRH1igrVg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_wdfCgYjPEee1HqRH1igrVg" bindingName="RestService31"/>
+  </sca:service>
+  <sca:service xmi:id="_QqIwMojQEee1HqRH1igrVg" name="session-listactivesessionids" promote="ComponentlistActiveSessionIds/session-listactivesessionids">
+    <sca:interface.wsdl xmi:id="_QqJXQIjQEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824062804PLT#wsdl.interface(session-listactivesessionids)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_QqJXQYjQEee1HqRH1igrVg" name="RestService32" path="/session/listactivesessionids" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Session/ListActiveSessionIds" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SessionCommands.listActiveSessionIds-Session-ListActiveSessionIds.json">
+      <operation xmi:id="_QqJ-UIjQEee1HqRH1igrVg" operationName="get" nickname="get-session-listactivesessionids" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_QqKlYIjQEee1HqRH1igrVg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_QqJ-UYjQEee1HqRH1igrVg" bindingName="RestService32"/>
+  </sca:service>
+  <sca:service xmi:id="_8dVqQojQEee1HqRH1igrVg" name="transfer-deleteexpiredtransfers" promote="ComponentdeleteExpiredTransfers/transfer-deleteexpiredtransfers">
+    <sca:interface.wsdl xmi:id="_8dWRUIjQEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824063242PLT#wsdl.interface(transfer-deleteexpiredtransfers)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_8dW4YIjQEee1HqRH1igrVg" name="RestService33" path="/transfer/deleteexpiredtransfers" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/DeleteExpiredTransfers" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.deleteExpiredTransfers-Transfer-DeleteExpiredTransfers.json">
+      <operation xmi:id="_8dW4YYjQEee1HqRH1igrVg" operationName="delete" nickname="delete-transfer-deleteexpiredtransfers" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_8dYGgIjQEee1HqRH1igrVg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_8dW4YojQEee1HqRH1igrVg" bindingName="RestService33"/>
+  </sca:service>
+  <sca:service xmi:id="_nwX2gojREee1HqRH1igrVg" name="transfer-gettransfer" promote="ComponentgetTransfer/transfer-gettransfer">
+    <sca:interface.wsdl xmi:id="_nwa50IjREee1HqRH1igrVg" interface="http://xmlns.example.com/20170824063704PLT#wsdl.interface(transfer-gettransfer)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_nwbg4IjREee1HqRH1igrVg" name="RestService34" path="/transfer/gettransfer/{transferid}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/GetTransfer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.getTransfer-Transfer-GetTransfer.json">
+      <operation xmi:id="_nwcH8IjREee1HqRH1igrVg" operationName="get" nickname="get-transfer-gettransfer" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_nwcH8ojREee1HqRH1igrVg">
+        <parameterMapping xmi:id="_nwcH84jREee1HqRH1igrVg" parameterName="transferid" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_nwcH8YjREee1HqRH1igrVg" bindingName="RestService34"/>
+  </sca:service>
+  <sca:service xmi:id="_R9Yj8YjUEee1HqRH1igrVg" name="transfer-retrievealltransfers" promote="ComponentretrieveAllTransfers/transfer-retrievealltransfers">
+    <sca:interface.wsdl xmi:id="_R9Yj9YjUEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824064339PLT#wsdl.interface(transfer-retrievealltransfers)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_R9ZLAIjUEee1HqRH1igrVg" name="RestService35" path="/transfer/retrievealltransfers" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/RetrieveAllTransfers" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.retrieveAllTransfers-Transfer-RetrieveAllTransfers.json">
+      <operation xmi:id="_R9ZyEIjUEee1HqRH1igrVg" operationName="get" nickname="get-transfer-retrievealltransfers" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_R9aZIIjUEee1HqRH1igrVg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_R9ZyEYjUEee1HqRH1igrVg" bindingName="RestService35"/>
+  </sca:service>
+  <sca:service xmi:id="_kD2IIojWEee1HqRH1igrVg" name="transfer-retrievealltransfersforuser" promote="ComponentretrieveAllTransfersForUser/transfer-retrievealltransfersforuser">
+    <sca:interface.wsdl xmi:id="_kD39UIjWEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824070938PLT#wsdl.interface(transfer-retrievealltransfersforuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_kD39UYjWEee1HqRH1igrVg" name="RestService36" path="/transfer/retrievealltransfersforuser/{userid}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/RetrieveAllTransfersForUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.retrieveAllTransfersForUser-Transfer-RetrieveAllTransfersForUser.json">
+      <operation xmi:id="_kD5LcIjWEee1HqRH1igrVg" operationName="get" nickname="get-transfer-retrievealltransfersforuser" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_kD5ygIjWEee1HqRH1igrVg">
+        <parameterMapping xmi:id="_kD5ygYjWEee1HqRH1igrVg" parameterName="userid" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_kD5LcYjWEee1HqRH1igrVg" bindingName="RestService36"/>
+  </sca:service>
+  <sca:service xmi:id="_16eWAIjXEee1HqRH1igrVg" name="transfer-removetransfer" promote="ComponentremoveTransfer/transfer-removetransfer">
+    <sca:interface.wsdl xmi:id="_16eWBIjXEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824072100PLT#wsdl.interface(transfer-removetransfer)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_16e9EIjXEee1HqRH1igrVg" name="RestService37" path="/transfer/removetransfer/{transferid}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/RemoveTransfer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.removeTransfer-Transfer-RemoveTransfer.json">
+      <operation xmi:id="_16e9EYjXEee1HqRH1igrVg" operationName="delete" nickname="delete-transfer-removetransfer" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_16fkIIjXEee1HqRH1igrVg">
+        <parameterMapping xmi:id="_16fkIYjXEee1HqRH1igrVg" parameterName="transferid" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_16e9EojXEee1HqRH1igrVg" bindingName="RestService37"/>
+  </sca:service>
+  <sca:service xmi:id="_m97GQIkbEee7xdYDPPT7Cw" name="transfer-searchfortransfers" promote="ComponentsearchForTransfers/transfer-searchfortransfers">
+    <sca:interface.wsdl xmi:id="_m-CbAIkbEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824073439PLT#wsdl.interface(transfer-searchfortransfers1)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_m-FeUIkbEee7xdYDPPT7Cw" name="RestService38" path="/transfer/searchfortransfers" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/SearchForTransfers" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.searchForTransfers-Transfer-SearchForTransfers.json">
+      <operation xmi:id="_m-GscIkbEee7xdYDPPT7Cw" operationName="post" nickname="post-transfer-searchfortransfers" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_m-JIsIkbEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_m-GscYkbEee7xdYDPPT7Cw" bindingName="RestService38"/>
+  </sca:service>
+  <sca:service xmi:id="_vM06AokeEee7xdYDPPT7Cw" name="transfer-updatetransfer" promote="ComponentupdateTransfer/transfer-updatetransfer">
+    <sca:interface.wsdl xmi:id="_vM1hEYkeEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824153450PLT#wsdl.interface(transfer-updatetransfer)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_vM2IIIkeEee7xdYDPPT7Cw" name="RestService39" path="/transfer/updatetransfer" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Transfer/UpdateTransfer" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/TransferCommands.updateTransfer-Transfer-UpdateTransfer.json">
+      <operation xmi:id="_vM2vMIkeEee7xdYDPPT7Cw" operationName="put" nickname="put-transfer-updatetransfer" httpMethod="PUT" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_vM8OwIkeEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_vM2vMYkeEee7xdYDPPT7Cw" bindingName="RestService39"/>
+  </sca:service>
+  <sca:service xmi:id="_SoyegIkuEee7xdYDPPT7Cw" name="user-addadminuser" promote="ComponentaddAdminUser/user-addadminuser">
+    <sca:interface.wsdl xmi:id="_SoyehIkuEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824173111PLT#wsdl.interface(user-addadminuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_SozFkIkuEee7xdYDPPT7Cw" name="RestService40" path="/user/addadminuser" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/AddAdminUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.addAdminUser-User-AddAdminUser.json">
+      <operation xmi:id="_SozsoIkuEee7xdYDPPT7Cw" operationName="post" nickname="post-user-addadminuser" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_So06wIkuEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_SozsoYkuEee7xdYDPPT7Cw" bindingName="RestService40"/>
+  </sca:service>
+  <sca:service xmi:id="_GUamAokyEee7xdYDPPT7Cw" name="user-addtransferuser" promote="ComponentaddTransferUser/user-addtransferuser">
+    <sca:interface.wsdl xmi:id="_GUbNEokyEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824180612PLT#wsdl.interface(user-addtransferuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_GUb0IIkyEee7xdYDPPT7Cw" name="RestService41" path="/user/addtransferuser" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/AddTransferUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.addTransferUser-User-AddTransferUser.json">
+      <operation xmi:id="_GUb0IYkyEee7xdYDPPT7Cw" operationName="post" nickname="post-user-addtransferuser" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_GUdpUIkyEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_GUcbMIkyEee7xdYDPPT7Cw" bindingName="RestService41"/>
+  </sca:service>
+  <sca:service xmi:id="_SLCuYok1Eee7xdYDPPT7Cw" name="user-changepassword" promote="ComponentchangePassword/user-changepassword">
+    <sca:interface.wsdl xmi:id="_SLDVcIk1Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824183018PLT#wsdl.interface(user-changepassword)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_SLDVcYk1Eee7xdYDPPT7Cw" name="RestService42" path="/user/changepassword" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/ChangePassword" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.changePassword-User-ChangePassword.json">
+      <operation xmi:id="_SLD8gIk1Eee7xdYDPPT7Cw" operationName="put" nickname="put-user-changepassword" httpMethod="PUT" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_SLGYwIk1Eee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_SLD8gYk1Eee7xdYDPPT7Cw" bindingName="RestService42"/>
+  </sca:service>
+  <sca:service xmi:id="_2hgxIok1Eee7xdYDPPT7Cw" name="user-getuser" promote="ComponentgetUser/user-getuser">
+    <sca:interface.wsdl xmi:id="_2hh_Qok1Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824183517PLT#wsdl.interface(user-getuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_2himUIk1Eee7xdYDPPT7Cw" name="RestService43" path="/user/getuser/{userid}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/GetUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.getUser-User-GetUser.json">
+      <operation xmi:id="_2himUYk1Eee7xdYDPPT7Cw" operationName="get" nickname="get-user-getuser" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_2hj0cIk1Eee7xdYDPPT7Cw">
+        <parameterMapping xmi:id="_2hj0cYk1Eee7xdYDPPT7Cw" parameterName="userid" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_2himUok1Eee7xdYDPPT7Cw" bindingName="RestService43"/>
+  </sca:service>
+  <sca:service xmi:id="_QBMQgYk2Eee7xdYDPPT7Cw" name="user-removeuser" promote="ComponentremoveUser/user-removeuser">
+    <sca:interface.wsdl xmi:id="_QBMQhYk2Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824183822PLT#wsdl.interface(user-removeuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_QBM3kIk2Eee7xdYDPPT7Cw" name="RestService44" path="/user/removeuser/{userid}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/RemoveUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.removeUser-User-RemoveUser.json">
+      <operation xmi:id="_QBM3kYk2Eee7xdYDPPT7Cw" operationName="delete" nickname="delete-user-removeuser" httpMethod="DELETE" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_QBOFsIk2Eee7xdYDPPT7Cw">
+        <parameterMapping xmi:id="_QBOFsYk2Eee7xdYDPPT7Cw" parameterName="userid" parameterType="Path" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_QBNeoIk2Eee7xdYDPPT7Cw" bindingName="RestService44"/>
+  </sca:service>
+  <sca:service xmi:id="_0b1oook2Eee7xdYDPPT7Cw" name="user-retrieveallusers" promote="ComponentretrieveAllUsers/user-retrieveallusers">
+    <sca:interface.wsdl xmi:id="_0b4E4Ik2Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824184111PLT#wsdl.interface(user-retrieveallusers)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_0b4r8Ik2Eee7xdYDPPT7Cw" name="RestService45" path="/user/retrieveallusers" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/RetrieveAllUsers" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.retrieveAllUsers-User-RetrieveAllUsers.json">
+      <operation xmi:id="_0b56EIk2Eee7xdYDPPT7Cw" operationName="get" nickname="get-user-retrieveallusers" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_0b7IMIk2Eee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_0b56EYk2Eee7xdYDPPT7Cw" bindingName="RestService45"/>
+  </sca:service>
+  <sca:service xmi:id="_eyc-Aok5Eee7xdYDPPT7Cw" name="user-updateuser" promote="ComponentupdateUser/user-updateuser">
+    <sca:interface.wsdl xmi:id="_eyc-Bok5Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824190034PLT#wsdl.interface(user-updateuser)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_eydlEIk5Eee7xdYDPPT7Cw" name="RestService46" path="/user/updateuser" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/UpdateUser" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserCommands.updateUser-User-UpdateUser.json">
+      <operation xmi:id="_eyeMIIk5Eee7xdYDPPT7Cw" operationName="patch" nickname="patch-user-updateuser" httpMethod="PATCH" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_eyezMIk5Eee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_eyeMIYk5Eee7xdYDPPT7Cw" bindingName="RestService46"/>
+  </sca:service>
+  <sca:service xmi:id="_zaMooIk6Eee7xdYDPPT7Cw" name="userprofile-adduserprofile" promote="ComponentaddUserProfile/userprofile-adduserprofile">
+    <sca:interface.wsdl xmi:id="_zaMopIk6Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824190820PLT#wsdl.interface(userprofile-adduserprofile)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_zaNPsIk6Eee7xdYDPPT7Cw" name="RestService47" path="/userprofile/adduserprofile" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="UserProfile/AddUserProfile" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserProfileCommands.addUserProfile-UserProfile-AddUserProfile.json">
+      <operation xmi:id="_zaNPsYk6Eee7xdYDPPT7Cw" operationName="post" nickname="post-userprofile-adduserprofile" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_zaOd0Ik6Eee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_zaNPsok6Eee7xdYDPPT7Cw" bindingName="RestService47"/>
+  </sca:service>
+  <sca:service xmi:id="_nQMCgok9Eee7xdYDPPT7Cw" name="user-getuserprofiles" promote="ComponentgetUserProfiles/user-getuserprofiles">
+    <sca:interface.wsdl xmi:id="_nQMpkYk9Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824192819PLT#wsdl.interface(user-getuserprofiles)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_nQNQoIk9Eee7xdYDPPT7Cw" name="RestService48" path="/user/getuserprofiles" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="User/GetUserProfiles" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserProfileCommands.getUserProfiles-User-GetUserProfiles.json">
+      <operation xmi:id="_nQNQoYk9Eee7xdYDPPT7Cw" operationName="post" nickname="post-user-getuserprofiles" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_nQPF0Ik9Eee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_nQNQook9Eee7xdYDPPT7Cw" bindingName="RestService48"/>
+  </sca:service>
+  <sca:service xmi:id="_Typ2UYk-Eee7xdYDPPT7Cw" name="userprofile-retrievealluserprofiles" promote="ComponentretrieveAllUserProfiles/userprofile-retrievealluserprofiles">
+    <sca:interface.wsdl xmi:id="_Typ2VYk-Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824193526PLT#wsdl.interface(userprofile-retrievealluserprofiles)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TyqdYIk-Eee7xdYDPPT7Cw" name="RestService49" path="/userprofile/retrievealluserprofiles" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="UserProfile/RetrieveAllUserProfiles" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserProfileCommands.retrieveAllUserProfiles-UserProfile-RetrieveAllUserProfiles.json">
+      <operation xmi:id="_TyrEcIk-Eee7xdYDPPT7Cw" operationName="get" nickname="get-userprofile-retrievealluserprofiles" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_TyrrgIk-Eee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_TyrEcYk-Eee7xdYDPPT7Cw" bindingName="RestService49"/>
+  </sca:service>
+  <sca:service xmi:id="_byfL8olEEee7xdYDPPT7Cw" name="userprofile-removeuserprofile" promote="ComponentremoveUserProfile/userprofile-removeuserprofile">
+    <sca:interface.wsdl xmi:id="_byfzAIlEEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824193949PLT#wsdl.interface(userprofile-removeuserprofile)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_bygaEIlEEee7xdYDPPT7Cw" name="RestService50" path="/userprofile/removeuserprofile" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="UserProfile/RemoveUserProfile" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserProfileCommands.removeUserProfile-UserProfile-RemoveUserProfile.json">
+      <operation xmi:id="_bygaEYlEEee7xdYDPPT7Cw" operationName="post" nickname="post-userprofile-removeuserprofile" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_byiPQIlEEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_bygaEolEEee7xdYDPPT7Cw" bindingName="RestService50"/>
+  </sca:service>
+  <sca:service xmi:id="_Hc4IQIlFEee7xdYDPPT7Cw" name="userprofile-updateuserprofile" promote="ComponentupdateUserProfile/userprofile-updateuserprofile">
+    <sca:interface.wsdl xmi:id="_Hc4IRIlFEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824202336PLT#wsdl.interface(userprofile-updateuserprofile)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Hc4vUIlFEee7xdYDPPT7Cw" name="RestService51" path="/userprofile/updateuserprofile" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="UserProfile/UpdateUserProfile" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/UserProfileCommands.updateUserProfile-UserProfile-UpdateUserProfile.json">
+      <operation xmi:id="_Hc5WYIlFEee7xdYDPPT7Cw" operationName="patch" nickname="patch-userprofile-updateuserprofile" httpMethod="PATCH" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Hc6kgIlFEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Hc5WYYlFEee7xdYDPPT7Cw" bindingName="RestService51"/>
+  </sca:service>
+  <sca:service xmi:id="_EdzSkIlGEee7xdYDPPT7Cw" name="misc-getcopyrightinfo" promote="ComponentgetCopyrightInfo/misc-getcopyrightinfo">
+    <sca:interface.wsdl xmi:id="_EdzSlIlGEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824203123PLT#wsdl.interface(misc-getcopyrightinfo)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Edz5oIlGEee7xdYDPPT7Cw" name="RestService52" path="/misc/getcopyrightinfo" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="Misc/GetCopyrightInfo" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/MiscCommands.getCopyrightInfo-Misc-GetCopyrightInfo.json">
+      <operation xmi:id="_Edz5oYlGEee7xdYDPPT7Cw" operationName="get" nickname="get-misc-getcopyrightinfo" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Ed1HwIlGEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Edz5oolGEee7xdYDPPT7Cw" bindingName="RestService52"/>
+  </sca:service>
+  <sca:service xmi:id="_CY17wIlHEee7xdYDPPT7Cw" name="helpcommandcommand" promote="Componenthelp/helpcommandcommand">
+    <sca:interface.wsdl xmi:id="_CY17xIlHEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824203706PLT#wsdl.interface(helpcommandcommand)" scaext:wsdlLocation="../Processes/MiscCommands/help.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_CY2i0IlHEee7xdYDPPT7Cw" name="RestService53" path="/help?command={command}" docBasePath="http://localhost:7777/REST-CLI.module" docResourcePath="help" basePath="/" connector="rest-cli.module.mftrest" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/MiscCommands.help-help.json">
+      <operation xmi:id="_CY2i0YlHEee7xdYDPPT7Cw" operationName="get" nickname="get-helpcommandcommand" httpMethod="GET" responseStyle="element">
+        <parameters xmi:id="_CY3w8YlHEee7xdYDPPT7Cw">
+          <parameterMapping xmi:id="_CY3w8olHEee7xdYDPPT7Cw" parameterName="command" parameterType="Query"/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_CY3w8IlHEee7xdYDPPT7Cw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_CY2i0olHEee7xdYDPPT7Cw" bindingName="RestService53"/>
+  </sca:service>
+  <sca:property xmi:id="_bAyHwH1HEeeEdpfNS_qfXg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bDA8YH1HEeeEdpfNS_qfXg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bDKtYH1HEeeEdpfNS_qfXg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bDUeYH1HEeeEdpfNS_qfXg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bHCgwH1HEeeEdpfNS_qfXg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bHMRwH1HEeeEdpfNS_qfXg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bHVbsH1HEeeEdpfNS_qfXg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bHVbsX1HEeeEdpfNS_qfXg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bHfMsH1HEeeEdpfNS_qfXg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__175gH1mEeeOtd9Rxpa0IQ" name="cmdAdminClient" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_yOIDMH1qEeeOtd9Rxpa0IQ" name="workingDir" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_CfCMEH1OEeeEdpfNS_qfXg" name="ComponentaddDepartment" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_CfCMEX1OEeeEdpfNS_qfXg" processName="DepartmentCommands.addDepartment"/>
+    <sca:service xmi:id="_uxRykH1OEeeEdpfNS_qfXg" name="department-adddepartment">
+      <sca:interface.wsdl xmi:id="_uxRykX1OEeeEdpfNS_qfXg" interface="http://xmlns.example.com/20170809175938PLT#wsdl.interface(department-adddepartment)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_LWEfYH1oEeeOtd9Rxpa0IQ" name="ComponentgetProductNameVersion" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_LWEfYX1oEeeOtd9Rxpa0IQ" processName="MiscCommands.getProductNameVersion"/>
+    <sca:service xmi:id="_aXw88H1oEeeOtd9Rxpa0IQ" name="misc-getproductnameversion">
+      <sca:interface.wsdl xmi:id="_aX6G4H1oEeeOtd9Rxpa0IQ" interface="http://xmlns.example.com/20170809210644PLT#wsdl.interface(misc-getproductnameversion)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_GXufoH10EeeOtd9Rxpa0IQ" name="ComponentAuditGetAudit" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_GXufoX10EeeOtd9Rxpa0IQ" processName="AuditCommands.getAudit"/>
+    <sca:service xmi:id="_GXufon10EeeOtd9Rxpa0IQ" name="audit-getaudit">
+      <sca:interface.wsdl xmi:id="_GXufo310EeeOtd9Rxpa0IQ" interface="http://xmlns.example.com/20170809223205PLT#wsdl.interface(audit-getaudit)" scaext:wsdlLocation="../Processes/AuditCommands/AuditGetAudit.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_3X2qMH13EeeOtd9Rxpa0IQ" name="ComponentremoveAudit" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_3X2qMX13EeeOtd9Rxpa0IQ" processName="AuditCommands.removeAudit"/>
+    <sca:service xmi:id="_B2FjoH14EeeOtd9Rxpa0IQ" name="audit-removeaudit">
+      <sca:interface.wsdl xmi:id="_B2FjoX14EeeOtd9Rxpa0IQ" interface="http://xmlns.example.com/20170809225902PLT#wsdl.interface(audit-removeaudit)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_ojfvUH3KEeeiYMh8KwFy-g" name="ComponentsearchForAudits" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ojfvUX3KEeeiYMh8KwFy-g" processName="AuditCommands.searchForAudits"/>
+    <sca:service xmi:id="_zENVAH3KEeeiYMh8KwFy-g" name="audit-searchforaudits">
+      <sca:interface.wsdl xmi:id="_zENVAX3KEeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810055131PLT#wsdl.interface(audit-searchforaudits)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Aqq0kH3UEeeiYMh8KwFy-g" name="ComponentaddServer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Aqq0kX3UEeeiYMh8KwFy-g" processName="ServerCommands.addServer"/>
+    <sca:service xmi:id="_tikQYH3VEeeiYMh8KwFy-g" name="server-addserver">
+      <sca:interface.wsdl xmi:id="_tikQYX3VEeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810065838PLT#wsdl.interface(server-addserver)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_xNCsUH38EeeiYMh8KwFy-g" name="ComponentgetServer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_xNCsUX38EeeiYMh8KwFy-g" processName="ServerCommands.getServer"/>
+    <sca:service xmi:id="__wxbgH38EeeiYMh8KwFy-g" name="server-getserver">
+      <sca:interface.wsdl xmi:id="__wxbgX38EeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810115024PLT#wsdl.interface(server-getserver)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_0D36EH39EeeiYMh8KwFy-g" name="ComponentaddTransfer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_0D36EX39EeeiYMh8KwFy-g" processName="TransferCommands.addTransfer"/>
+    <sca:service xmi:id="_eieGwH4AEeeiYMh8KwFy-g" name="transfer-addtransfer">
+      <sca:interface.wsdl xmi:id="_eieGwX4AEeeiYMh8KwFy-g" interface="http://xmlns.example.com/20170810115753PLT#wsdl.interface(transfer-addtransfer)" scaext:wsdlLocation="../Processes/TransferCommands/addTransfer.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_1AVNQIIZEee6Bt6aqaV5bQ" name="ComponentgetDepartment" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_1AVNQYIZEee6Bt6aqaV5bQ" processName="DepartmentCommands.getDepartment"/>
+    <sca:service xmi:id="_BNOA4IIaEee6Bt6aqaV5bQ" name="department-getdepartment">
+      <sca:interface.wsdl xmi:id="_BNOn8IIaEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815172830PLT#wsdl.interface(department-getdepartment)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_dIfY8IIaEee6Bt6aqaV5bQ" name="ComponentremoveDepartment" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_dIfY8YIaEee6Bt6aqaV5bQ" processName="DepartmentCommands.removeDepartment"/>
+    <sca:service xmi:id="_wmmXcIIaEee6Bt6aqaV5bQ" name="department-removedepartment">
+      <sca:interface.wsdl xmi:id="_wmmXcYIaEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815173259PLT#wsdl.interface(department-removedepartment)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_GFb3kIIbEee6Bt6aqaV5bQ" name="ComponentretrieveAllDepartments" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_GFb3kYIbEee6Bt6aqaV5bQ" processName="DepartmentCommands.retrieveAllDepartments"/>
+    <sca:service xmi:id="_aw8dUIIbEee6Bt6aqaV5bQ" name="department-retrievealldepartments">
+      <sca:interface.wsdl xmi:id="_aw8dUYIbEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815173734PLT#wsdl.interface(department-retrievealldepartments)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_okRDQIIbEee6Bt6aqaV5bQ" name="ComponentupdateDepartment" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_okRDQYIbEee6Bt6aqaV5bQ" processName="DepartmentCommands.updateDepartment"/>
+    <sca:service xmi:id="_BMhLYIIcEee6Bt6aqaV5bQ" name="department-updatedepartment">
+      <sca:interface.wsdl xmi:id="_BMhLYYIcEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815174125PLT#wsdl.interface(department-updatedepartment)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_u5dOQIIcEee6Bt6aqaV5bQ" name="ComponentaddGroup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_u5dOQYIcEee6Bt6aqaV5bQ" processName="GroupCommands.addGroup"/>
+    <sca:service xmi:id="_C3bYkIIdEee6Bt6aqaV5bQ" name="group-addgroup">
+      <sca:interface.wsdl xmi:id="_C3bYkYIdEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815174917PLT#wsdl.interface(group-addgroup)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_232ywIIdEee6Bt6aqaV5bQ" name="ComponentaddUserToGroup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_232ywYIdEee6Bt6aqaV5bQ" processName="GroupCommands.addUserToGroup"/>
+    <sca:service xmi:id="_KdtYAIIeEee6Bt6aqaV5bQ" name="group-addusertogroup">
+      <sca:interface.wsdl xmi:id="_KdtYAYIeEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815175720PLT#wsdl.interface(group-addusertogroup)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_INOtsIIfEee6Bt6aqaV5bQ" name="ComponentgetGroup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_INPUwIIfEee6Bt6aqaV5bQ" processName="GroupCommands.getGroup"/>
+    <sca:service xmi:id="_dTTIgIIfEee6Bt6aqaV5bQ" name="group-getgroup">
+      <sca:interface.wsdl xmi:id="_dTTIgYIfEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815180626PLT#wsdl.interface(group-getgroup)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Hb-acIIgEee6Bt6aqaV5bQ" name="ComponentremoveGroup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Hb-acYIgEee6Bt6aqaV5bQ" processName="GroupCommands.removeGroup"/>
+    <sca:service xmi:id="_UTffcIIgEee6Bt6aqaV5bQ" name="group-removegroup">
+      <sca:interface.wsdl xmi:id="_UTffcYIgEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815181330PLT#wsdl.interface(group-removegroup)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_rQwscIIgEee6Bt6aqaV5bQ" name="ComponentretrieveAllGroups" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_rQwscYIgEee6Bt6aqaV5bQ" processName="GroupCommands.retrieveAllGroups"/>
+    <sca:service xmi:id="_3g2lEIIgEee6Bt6aqaV5bQ" name="group-retrieveallgroups">
+      <sca:interface.wsdl xmi:id="_3g2lEYIgEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815181731PLT#wsdl.interface(group-retrieveallgroups)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_JTYykIIhEee6Bt6aqaV5bQ" name="ComponentretrieveAllGroupsForUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_JTYykYIhEee6Bt6aqaV5bQ" processName="GroupCommands.retrieveAllGroupsForUser"/>
+    <sca:service xmi:id="_Vr9RwIIhEee6Bt6aqaV5bQ" name="group-retrieveallgroupsforuser">
+      <sca:interface.wsdl xmi:id="_Vr9RwYIhEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815182052PLT#wsdl.interface(group-retrieveallgroupsforuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_tRxsgIIhEee6Bt6aqaV5bQ" name="ComponentretrieveAllUsersInGroup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_tRxsgYIhEee6Bt6aqaV5bQ" processName="GroupCommands.retrieveAllUsersInGroup"/>
+    <sca:service xmi:id="_9pxOoIIhEee6Bt6aqaV5bQ" name="group-retrieveallusersingroup">
+      <sca:interface.wsdl xmi:id="_9pxOoYIhEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815182454PLT#wsdl.interface(group-retrieveallusersingroup)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Rc8eMIIiEee6Bt6aqaV5bQ" name="ComponentremoveUserFromGroup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Rc8eMYIiEee6Bt6aqaV5bQ" processName="GroupCommands.removeUserFromGroup"/>
+    <sca:service xmi:id="_pTvUMIIiEee6Bt6aqaV5bQ" name="group-removeuserfromgroup">
+      <sca:interface.wsdl xmi:id="_pTvUMYIiEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815182856PLT#wsdl.interface(group-removeuserfromgroup)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_8mY0IIIjEee6Bt6aqaV5bQ" name="ComponentAddUserToRole" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_8mY0IYIjEee6Bt6aqaV5bQ" processName="RoleCommands.AddUserToRole"/>
+    <sca:service xmi:id="_aKYdgIIkEee6Bt6aqaV5bQ" name="role-addusertorole">
+      <sca:interface.wsdl xmi:id="_aKYdgYIkEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815184056PLT#wsdl.interface(role-addusertorole)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_zZa40IIkEee6Bt6aqaV5bQ" name="ComponentgetRole" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zZa40YIkEee6Bt6aqaV5bQ" processName="RoleCommands.getRole"/>
+    <sca:service xmi:id="_Be1UUIIlEee6Bt6aqaV5bQ" name="role-getrole">
+      <sca:interface.wsdl xmi:id="_Be1UUYIlEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815184703PLT#wsdl.interface(role-getrole)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_kZrtoIIlEee6Bt6aqaV5bQ" name="ComponentretrieveAllRoles" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_kZrtoYIlEee6Bt6aqaV5bQ" processName="RoleCommands.retrieveAllRoles"/>
+    <sca:service xmi:id="_tLrHsIIlEee6Bt6aqaV5bQ" name="role-retrieveallroles">
+      <sca:interface.wsdl xmi:id="_tLrHsYIlEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815185232PLT#wsdl.interface(role-retrieveallroles)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_37p4cIIlEee6Bt6aqaV5bQ" name="ComponentretrieveAllRolesForUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_37p4cYIlEee6Bt6aqaV5bQ" processName="RoleCommands.retrieveAllRolesForUser"/>
+    <sca:service xmi:id="_E6Gr4IImEee6Bt6aqaV5bQ" name="role-retrieveallrolesforuser">
+      <sca:interface.wsdl xmi:id="_E6HS8IImEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815185443PLT#wsdl.interface(role-retrieveallrolesforuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_bD8Q0IImEee6Bt6aqaV5bQ" name="ComponentretrieveAllUsersInRole" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_bD8Q0YImEee6Bt6aqaV5bQ" processName="RoleCommands.retrieveAllUsersInRole"/>
+    <sca:service xmi:id="_l5FOYIImEee6Bt6aqaV5bQ" name="role-retrieveallusersinrole">
+      <sca:interface.wsdl xmi:id="_l5FOYYImEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815185839PLT#wsdl.interface(role-retrieveallusersinrole)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_-W95kIImEee6Bt6aqaV5bQ" name="ComponentremoveUserFromRole" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-W95kYImEee6Bt6aqaV5bQ" processName="RoleCommands.removeUserFromRole"/>
+    <sca:service xmi:id="_fqNb4IInEee6Bt6aqaV5bQ" name="role-removeuserfromrole">
+      <sca:interface.wsdl xmi:id="_fqNb4YInEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815190236PLT#wsdl.interface(role-removeuserfromrole)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_3NzpEIInEee6Bt6aqaV5bQ" name="ComponentretrieveAllServers" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_3NzpEYInEee6Bt6aqaV5bQ" processName="ServerCommands.retrieveAllServers"/>
+    <sca:service xmi:id="_GskdIIIoEee6Bt6aqaV5bQ" name="server-retrieveallservers">
+      <sca:interface.wsdl xmi:id="_GskdIYIoEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815190857PLT#wsdl.interface(server-retrieveallservers)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Rp7ikIIoEee6Bt6aqaV5bQ" name="ComponentremoveServer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Rp7ikYIoEee6Bt6aqaV5bQ" processName="ServerCommands.removeServer"/>
+    <sca:service xmi:id="_QaOl4IKDEee6Bt6aqaV5bQ" name="server-removeserver">
+      <sca:interface.wsdl xmi:id="_QaOl4YKDEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170815191155PLT#wsdl.interface(server-removeserver)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_IizDsIKQEee6Bt6aqaV5bQ" name="ComponentUpdateServer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_IizDsYKQEee6Bt6aqaV5bQ" processName="ServerCommands.UpdateServer"/>
+    <sca:service xmi:id="_kDsaoIKVEee6Bt6aqaV5bQ" name="server-updateserver">
+      <sca:interface.wsdl xmi:id="_kDsaoYKVEee6Bt6aqaV5bQ" interface="http://xmlns.example.com/20170816073521PLT#wsdl.interface(server-updateserver)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="__9FG4IKWEee6Bt6aqaV5bQ" name="ComponentdeleteSessionId" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="__9FG4YKWEee6Bt6aqaV5bQ" processName="SessionCommands.deleteSessionId"/>
+    <sca:service xmi:id="_EHhrkIjNEee1HqRH1igrVg" name="session-deletesession">
+      <sca:interface.wsdl xmi:id="_EHi5sIjNEee1HqRH1igrVg" interface="http://xmlns.example.com/20170816082430PLT#wsdl.interface(session-deletesession)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_jMXcoIjNEee1HqRH1igrVg" name="ComponentdeleteExpiredSessionIds" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_jMXcoYjNEee1HqRH1igrVg" processName="SessionCommands.deleteExpiredSessionIds"/>
+    <sca:service xmi:id="_4vY5MIjNEee1HqRH1igrVg" name="session-deleteexpiredsessionids">
+      <sca:interface.wsdl xmi:id="_4vY5MYjNEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824061006PLT#wsdl.interface(session-deleteexpiredsessionids)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_PegVcIjOEee1HqRH1igrVg" name="ComponentgetExpiredSessionIds" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_PegVcYjOEee1HqRH1igrVg" processName="SessionCommands.getExpiredSessionIds"/>
+    <sca:service xmi:id="_wdd0YIjPEee1HqRH1igrVg" name="session-getexpiredsessionids">
+      <sca:interface.wsdl xmi:id="_wdd0YYjPEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824061504PLT#wsdl.interface(session-getexpiredsessionids)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_DwOegIjQEee1HqRH1igrVg" name="ComponentlistActiveSessionIds" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_DwOegYjQEee1HqRH1igrVg" processName="SessionCommands.listActiveSessionIds"/>
+    <sca:service xmi:id="_QqIwMIjQEee1HqRH1igrVg" name="session-listactivesessionids">
+      <sca:interface.wsdl xmi:id="_QqIwMYjQEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824062804PLT#wsdl.interface(session-listactivesessionids)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_tML0YIjQEee1HqRH1igrVg" name="ComponentdeleteExpiredTransfers" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_tML0YYjQEee1HqRH1igrVg" processName="TransferCommands.deleteExpiredTransfers"/>
+    <sca:service xmi:id="_8dVqQIjQEee1HqRH1igrVg" name="transfer-deleteexpiredtransfers">
+      <sca:interface.wsdl xmi:id="_8dVqQYjQEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824063242PLT#wsdl.interface(transfer-deleteexpiredtransfers)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_USuyEIjREee1HqRH1igrVg" name="ComponentgetTransfer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_USuyEYjREee1HqRH1igrVg" processName="TransferCommands.getTransfer"/>
+    <sca:service xmi:id="_nwX2gIjREee1HqRH1igrVg" name="transfer-gettransfer">
+      <sca:interface.wsdl xmi:id="_nwX2gYjREee1HqRH1igrVg" interface="http://xmlns.example.com/20170824063704PLT#wsdl.interface(transfer-gettransfer)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_PK11wIjSEee1HqRH1igrVg" name="ComponentretrieveAllTransfers" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_PK11wYjSEee1HqRH1igrVg" processName="TransferCommands.retrieveAllTransfers"/>
+    <sca:service xmi:id="_R9X84IjUEee1HqRH1igrVg" name="transfer-retrievealltransfers">
+      <sca:interface.wsdl xmi:id="_R9Yj8IjUEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824064339PLT#wsdl.interface(transfer-retrievealltransfers)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_3aBIEIjVEee1HqRH1igrVg" name="ComponentretrieveAllTransfersForUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_3aBIEYjVEee1HqRH1igrVg" processName="TransferCommands.retrieveAllTransfersForUser"/>
+    <sca:service xmi:id="_kD2IIIjWEee1HqRH1igrVg" name="transfer-retrievealltransfersforuser">
+      <sca:interface.wsdl xmi:id="_kD2IIYjWEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824070938PLT#wsdl.interface(transfer-retrievealltransfersforuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_dGYKQIjXEee1HqRH1igrVg" name="ComponentremoveTransfer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_dGYKQYjXEee1HqRH1igrVg" processName="TransferCommands.removeTransfer"/>
+    <sca:service xmi:id="_16du8IjXEee1HqRH1igrVg" name="transfer-removetransfer">
+      <sca:interface.wsdl xmi:id="_16du8YjXEee1HqRH1igrVg" interface="http://xmlns.example.com/20170824072100PLT#wsdl.interface(transfer-removetransfer)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_XCBwQIjZEee1HqRH1igrVg" name="ComponentsearchForTransfers" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_XCBwQYjZEee1HqRH1igrVg" processName="TransferCommands.searchForTransfers"/>
+    <sca:service xmi:id="_m9zKcIkbEee7xdYDPPT7Cw" name="transfer-searchfortransfers">
+      <sca:interface.wsdl xmi:id="_m91msIkbEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824073439PLT#wsdl.interface(transfer-searchfortransfers1)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_cVOMwIkcEee7xdYDPPT7Cw" name="ComponentupdateTransfer" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_cVOMwYkcEee7xdYDPPT7Cw" processName="TransferCommands.updateTransfer"/>
+    <sca:service xmi:id="_vM06AIkeEee7xdYDPPT7Cw" name="transfer-updatetransfer">
+      <sca:interface.wsdl xmi:id="_vM06AYkeEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824153450PLT#wsdl.interface(transfer-updatetransfer)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_scUY4IksEee7xdYDPPT7Cw" name="ComponentaddAdminUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_scUY4YksEee7xdYDPPT7Cw" processName="UserCommands.addAdminUser"/>
+    <sca:service xmi:id="_Sox3cIkuEee7xdYDPPT7Cw" name="user-addadminuser">
+      <sca:interface.wsdl xmi:id="_Sox3cYkuEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824173111PLT#wsdl.interface(user-addadminuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_lmR74IkxEee7xdYDPPT7Cw" name="ComponentaddTransferUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_lmR74YkxEee7xdYDPPT7Cw" processName="UserCommands.addTransferUser"/>
+    <sca:service xmi:id="_GUamAIkyEee7xdYDPPT7Cw" name="user-addtransferuser">
+      <sca:interface.wsdl xmi:id="_GUamAYkyEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824180612PLT#wsdl.interface(user-addtransferuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_9G7bYIk0Eee7xdYDPPT7Cw" name="ComponentchangePassword" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_9G7bYYk0Eee7xdYDPPT7Cw" processName="UserCommands.changePassword"/>
+    <sca:service xmi:id="_SLCuYIk1Eee7xdYDPPT7Cw" name="user-changepassword">
+      <sca:interface.wsdl xmi:id="_SLCuYYk1Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824183018PLT#wsdl.interface(user-changepassword)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_poSb8Ik1Eee7xdYDPPT7Cw" name="ComponentgetUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_poSb8Yk1Eee7xdYDPPT7Cw" processName="UserCommands.getUser"/>
+    <sca:service xmi:id="_2hgxIIk1Eee7xdYDPPT7Cw" name="user-getuser">
+      <sca:interface.wsdl xmi:id="_2hgxIYk1Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824183517PLT#wsdl.interface(user-getuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_FLWIUIk2Eee7xdYDPPT7Cw" name="ComponentremoveUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FLWIUYk2Eee7xdYDPPT7Cw" processName="UserCommands.removeUser"/>
+    <sca:service xmi:id="_QBLpcIk2Eee7xdYDPPT7Cw" name="user-removeuser">
+      <sca:interface.wsdl xmi:id="_QBMQgIk2Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824183822PLT#wsdl.interface(user-removeuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_eVrp0Ik2Eee7xdYDPPT7Cw" name="ComponentretrieveAllUsers" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_eVrp0Yk2Eee7xdYDPPT7Cw" processName="UserCommands.retrieveAllUsers"/>
+    <sca:service xmi:id="_0b1ooIk2Eee7xdYDPPT7Cw" name="user-retrieveallusers">
+      <sca:interface.wsdl xmi:id="_0b1ooYk2Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824184111PLT#wsdl.interface(user-retrieveallusers)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_LoV5kIk5Eee7xdYDPPT7Cw" name="ComponentupdateUser" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_LoV5kYk5Eee7xdYDPPT7Cw" processName="UserCommands.updateUser"/>
+    <sca:service xmi:id="_eyc-AIk5Eee7xdYDPPT7Cw" name="user-updateuser">
+      <sca:interface.wsdl xmi:id="_eyc-AYk5Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824190034PLT#wsdl.interface(user-updateuser)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_RKKG4Ik6Eee7xdYDPPT7Cw" name="ComponentaddUserProfile" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_RKKG4Yk6Eee7xdYDPPT7Cw" processName="UserProfileCommands.addUserProfile"/>
+    <sca:service xmi:id="_zaMBkIk6Eee7xdYDPPT7Cw" name="userprofile-adduserprofile">
+      <sca:interface.wsdl xmi:id="_zaMBkYk6Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824190820PLT#wsdl.interface(userprofile-adduserprofile)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_DsuxEIk9Eee7xdYDPPT7Cw" name="ComponentgetUserProfiles" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_DsuxEYk9Eee7xdYDPPT7Cw" processName="UserProfileCommands.getUserProfiles"/>
+    <sca:service xmi:id="_nQMCgIk9Eee7xdYDPPT7Cw" name="user-getuserprofiles">
+      <sca:interface.wsdl xmi:id="_nQMCgYk9Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824192819PLT#wsdl.interface(user-getuserprofiles)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_DZdaUIk-Eee7xdYDPPT7Cw" name="ComponentretrieveAllUserProfiles" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_DZeBYIk-Eee7xdYDPPT7Cw" processName="UserProfileCommands.retrieveAllUserProfiles"/>
+    <sca:service xmi:id="_TypPQIk-Eee7xdYDPPT7Cw" name="userprofile-retrievealluserprofiles">
+      <sca:interface.wsdl xmi:id="_Typ2UIk-Eee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824193526PLT#wsdl.interface(userprofile-retrievealluserprofiles)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_qmHAAIk-Eee7xdYDPPT7Cw" name="ComponentremoveUserProfile" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_qmHAAYk-Eee7xdYDPPT7Cw" processName="UserProfileCommands.removeUserProfile"/>
+    <sca:service xmi:id="_byfL8IlEEee7xdYDPPT7Cw" name="userprofile-removeuserprofile">
+      <sca:interface.wsdl xmi:id="_byfL8YlEEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824193949PLT#wsdl.interface(userprofile-removeuserprofile)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_yDd6sIlEEee7xdYDPPT7Cw" name="ComponentupdateUserProfile" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yDd6sYlEEee7xdYDPPT7Cw" processName="UserProfileCommands.updateUserProfile"/>
+    <sca:service xmi:id="_Hc3hMIlFEee7xdYDPPT7Cw" name="userprofile-updateuserprofile">
+      <sca:interface.wsdl xmi:id="_Hc3hMYlFEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824202336PLT#wsdl.interface(userprofile-updateuserprofile)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_3jdjEIlFEee7xdYDPPT7Cw" name="ComponentgetCopyrightInfo" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_3jdjEYlFEee7xdYDPPT7Cw" processName="MiscCommands.getCopyrightInfo"/>
+    <sca:service xmi:id="_EdyrgIlGEee7xdYDPPT7Cw" name="misc-getcopyrightinfo">
+      <sca:interface.wsdl xmi:id="_EdyrgYlGEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824203123PLT#wsdl.interface(misc-getcopyrightinfo)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_qqxj8IlGEee7xdYDPPT7Cw" name="Componenthelp" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_qqxj8YlGEee7xdYDPPT7Cw" processName="MiscCommands.help"/>
+    <sca:service xmi:id="_CY1UsIlHEee7xdYDPPT7Cw" name="helpcommandcommand">
+      <sca:interface.wsdl xmi:id="_CY1UsYlHEee7xdYDPPT7Cw" interface="http://xmlns.example.com/20170824203706PLT#wsdl.interface(helpcommandcommand)" scaext:wsdlLocation="../Processes/MiscCommands/help.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

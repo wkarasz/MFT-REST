@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="AddServerRequestSimplified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="AddServerRequestSimplified">
+  <xsd:element name="Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="CheckServerStatus" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="CollectInterval" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="CollectType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="CollectionFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="CompressType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ConnectionSecurityType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DataConnectionType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultEncryptType" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultLTTable" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultPass" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultRTTable" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultUser" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DefaultWinDomain" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Department" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="DisableFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="INETServerType" type="xsd:string"/>
+                <xsd:element minOccurs="1" name="IPName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="IPPort" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ManageCFServerFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPASCII" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPCompression" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPEnabled" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPEncryptAlgorithm" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPHashAlgorithm" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPPrivateKey" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPSign" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPVerifySignature" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="PGPVerifyServerSignature" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ServerFileNamePrefix" type="xsd:string"/>
+                <xsd:element minOccurs="1" name="ServerName" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="ServerPlatform" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="TraceLevelFlag" type="xsd:string"/>
+                <xsd:element minOccurs="0" name="Visibility" type="xsd:string"/>
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

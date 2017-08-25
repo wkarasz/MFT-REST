@@ -1,0 +1,57 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/audit/removeaudit" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-audit-removeaudit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/removeAuditRequest"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "removeAuditRequest" : {
+      "type" : "object",
+      "properties" : {
+        "AuditID" : {
+          "type" : "string"
+        },
+        "Days" : {
+          "type" : "string"
+        },
+        "PurgeDate" : {
+          "type" : "string"
+        },
+        "ServerType" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

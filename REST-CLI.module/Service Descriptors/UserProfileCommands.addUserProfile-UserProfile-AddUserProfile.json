@@ -1,0 +1,63 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Command action is used to add a server credential definition to the MFTCC system.",
+    "description" : "Command action is used to add a server credential definition to the MFTCC system."
+  },
+  "host" : "localhost:8083",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/userprofile/adduserprofile" : {
+      "post" : {
+        "description" : "Add user profile",
+        "operationId" : "post-userprofile-adduserprofile",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Element"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Element" : {
+      "type" : "object",
+      "properties" : {
+        "GroupId" : {
+          "type" : "string"
+        },
+        "NodeName" : {
+          "type" : "string"
+        },
+        "RemotePassword" : {
+          "type" : "string"
+        },
+        "RemoteUserId" : {
+          "type" : "string"
+        },
+        "RemoteUserWinDomain" : {
+          "type" : "string"
+        },
+        "UserId" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

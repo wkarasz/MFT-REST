@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="searchForAuditRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="searchForAuditRequest">
+  <xsd:element name="searchForAuditRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AuditID"
+        	nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="12"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="0" name="AuthGroupID" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="64"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="0" name="ClientFileName"
+        	nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="256"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="Days" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="4"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="Department" type="xsd:string" nillable="true" maxOccurs="1"/>
+        <xsd:element minOccurs="0" name="FileID" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="12"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="FromDate" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:pattern value="\d{4}(/)\d{2}(/)\d{2}"></xsd:pattern>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="FromTime" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+
+        			<xsd:length value="4"></xsd:length>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="LocalTransactionID"
+        	nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="10"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="ServerFileName" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="256"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="ServerType" nillable="true"
+        	maxOccurs="1">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:enumeration value="I"></xsd:enumeration>
+        			<xsd:enumeration value="P"></xsd:enumeration>
+        			<xsd:enumeration value="B"></xsd:enumeration>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="ToDate" maxOccurs="1" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:pattern value="\d{4}(/)\d{2}(/)\d{2}"></xsd:pattern>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="ToTime" nillable="true"
+        	maxOccurs="1">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="4"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="TransferStatus" maxOccurs="1" nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:enumeration value="S"></xsd:enumeration>
+        			<xsd:enumeration value="F"></xsd:enumeration>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="TransferUserID"
+        	nillable="true">
+        	<xsd:simpleType>
+        		<xsd:restriction base="xsd:string">
+        			<xsd:maxLength value="64"></xsd:maxLength>
+        		</xsd:restriction>
+        	</xsd:simpleType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="UserID" type="xsd:string"/>
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+
+  <xsd:complexType name="searchForAuditRequestSimplified">
+  	<xsd:sequence>
+  		<xsd:element name="AuditId" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="AuthGroupId" type="xsd:string"
+  			minOccurs="0" maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="ClientFileName" type="xsd:string"
+  			minOccurs="0" maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="Days" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="Department" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="FileId" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="FromDate" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="FromTime" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="LocalTransactionId" type="xsd:string"
+  			minOccurs="0" maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="ServerFileName" type="xsd:string"
+  			minOccurs="0" maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="ServerType" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="ToDate" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="ToTime" type="xsd:string" minOccurs="0"
+  			maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="TransferStatus" type="xsd:string"
+  			minOccurs="0" maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="TransferUserId" type="xsd:string"
+  			minOccurs="0" maxOccurs="1">
+  		</xsd:element>
+  		<xsd:element name="UserId" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+  	</xsd:sequence>
+  </xsd:complexType>
+
+    <xsd:element name="searchForAuditRequestSimplified" type="tns:searchForAuditRequestSimplified"></xsd:element>
+</xsd:schema>
