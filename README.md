@@ -11,13 +11,12 @@ The project is written with Windows in mind.  That's not to say it can't be modi
 * TIBCO BusinessWorks 6
 * MFT Command Center
 
-### Environment Setup
+## Environment Setup
 * Install AdminClient on same server as BW engine.  (It is not necessary to install the AdminClient on the same server as MFT)  
   Run through the AdminClient setup  
   `java cfcc.Config`  
   Keep in mind all the Command Actions will be carried out by the MFT ID provided in this configuration step, and will be limited by the permissions as defined in MFT.
-
-## Deploy the Application:
+* Import the BW application into the BusinessWorks Studio.
 * Deploy the BW application, REST-CLI, to TIBCO Enterprise Administrator.
 * Set the module properties
   * cmd - Defines the full path to the cfcc.bat file  
