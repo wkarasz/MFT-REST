@@ -20,9 +20,9 @@ The project is written with Windows in mind.  That's not to say it can't be modi
 ## Deploy the Application:
 * Deploy the BW application, REST-CLI, to TIBCO Enterprise Administrator.
 * Set the module properties
-** cmd - Defines the full path to the cfcc.bat file  
-   e.g. c:\apps\AdminClient\cfcc.bat
-** workingDir - Defines the full path to the root directory of the AdminClient  
-   e.g. c:\apps\AdminClient
+  * cmd - Defines the full path to the cfcc.bat file  
+    e.g. c:\apps\AdminClient\cfcc.bat
+  * workingDir - Defines the full path to the root directory of the AdminClient  
+    e.g. c:\apps\AdminClient
 
 Once deployed, obtain the restDoc URL from TEA to test out the REST API.
